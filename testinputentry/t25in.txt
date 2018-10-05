@@ -1,0 +1,6 @@
+login
+planner
+cancelticket
+10000
+1
+logout
