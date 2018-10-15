@@ -3,7 +3,7 @@ def createService(account, serviceList):
         print("agent cannot create services\n")
         return
     #print("Enter the new service number")
-    newNumber = input("Enter the new service number\n")
+    newNumber = input("Enter the new service number:\n")
     if(newNumber in serviceList):
         print("invalid service number\n")
         return
@@ -12,7 +12,7 @@ def createService(account, serviceList):
         return
         
     #print("Enter the date of the service: YYYYMMDD")
-    date = input("Enter the date of the service: YYYYMMDD\n")
+    date = input("Enter the date of the service(YYYYMMDD):\n")
     if(date.len > 8):
         print("invalid date\n")
         return
@@ -27,7 +27,7 @@ def createService(account, serviceList):
         return
     
     #print("Enter a name for the service (3-39 characters, cannot begin/end with a space)")
-    name = input("Enter a name for the service (3-39 characters, cannot begin/end with a space)\n")
+    name = input("Enter a name for the service (3-39 characters, cannot begin/end with a space):\n")
     if(name.len > 39 | name.len < 3):
         print("invalid service name\n")
         return
