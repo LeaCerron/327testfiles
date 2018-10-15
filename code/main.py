@@ -54,6 +54,6 @@ while True:
         addToTransactions("EOS 00000 0 00000 **** 0")
         #do I need to direct file somewhere?
         break
-
-    print("Invalid command, try again")
+    else:
+        print("Invalid command, try again")
 
