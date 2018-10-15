@@ -2,7 +2,7 @@ def createService(account, serviceList):
     if(account == "agent"):
         print("agent cannot create services\n")
         return
-    #print("Enter the new service number")
+
     newNumber = input("Enter the new service number:\n")
     if(newNumber in serviceList):
         print("invalid service number\n")
@@ -10,8 +10,7 @@ def createService(account, serviceList):
     elif (newNumber[:1] == "0" or len(newNumber) != 5):
         print("invalid service number\n")
         return
-        
-    #print("Enter the date of the service: YYYYMMDD")
+
     date = input("Enter the date of the service(YYYYMMDD):\n")
     if(len(date) > 8):
         print("invalid date\n")
@@ -26,7 +25,6 @@ def createService(account, serviceList):
         print("invalid date\n")
         return
     
-    #print("Enter a name for the service (3-39 characters, cannot begin/end with a space)")
     name = input("Enter a name for the service (3-39 characters, cannot begin/end with a space):\n")
     if(len(name) > 39 or len(name) < 3):
         print("invalid service name\n")
@@ -35,6 +33,5 @@ def createService(account, serviceList):
         print("invalid service name\n")
         return
     
-    #addToTransactions("CRE " + newNumber + " 0 00000 " + name + " " + date)
     print("Service successfuly created\n")
     return
