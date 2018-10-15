@@ -29,7 +29,7 @@ def createService(account, serviceList):
     if(len(name) > 39 or len(name) < 3):
         print("invalid service name\n")
         return
-    elif(name[:1] == " " or name[:-1] == " "):
+    elif(name[:1] == " " or name[-1:] == " "):
         print("invalid service name\n")
         return
     
