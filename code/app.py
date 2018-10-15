@@ -1,9 +1,9 @@
 from datetime import datetime
 
-def cancelTicket(account, servicenumnbers, cancelcount, canceldict):
+def cancelTicket(account, serviceList, cancelcount, canceldict):
     #get service number
     serviceNumber = input("Please enter service number: ")
-    if serviceNumber not in servicenumbers:
+    if serviceNumber not in serviceList:
         #check if the service number is in the valid services list
         print("Service number not in the valid services list")
         return(0)
@@ -37,8 +37,10 @@ def cancelTicket(account, servicenumnbers, cancelcount, canceldict):
     addToTransactions("DEL " + serviceNumber + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
     return(null)
 
-def sellTicket(account, sellaccount):
-    if sellaccount not in servicenumbers:
+def sellTicket(account, serviceList):
+    #ask for service number
+    serviceNumber = input("Please enter service number: ")
+    if serviceNumber not in serviceList:
         print("invalid service number")
         return(0)
     tickets = input("please enter the number ot tickets to sell: ") #enter number of tickets
@@ -46,7 +48,7 @@ def sellTicket(account, sellaccount):
         print("invalid number of tickets")
         return(0)
     today = datetime.now()
-    addToTransactions("SEL " + sellaccount + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
+    addToTransactions("SEL " + serviceNumber + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
     return(cancelCount,cancelDict)
 
 main()
