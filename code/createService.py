@@ -16,13 +16,13 @@ def createService(account, serviceList):
     if(len(date) > 8):
         print("invalid date\n")
         return
-    elif(int(date[:4]) > 2999 or int(date[:4]) < 1980):
+    elif(int(date[0:4]) > 2999 or int(date[0:4]) < 1980):
         print("invalid date\n")
         return
-    elif(int(date[5:6]) > 12 or int(date[5:6]) < 1):
+    elif(int(date[4:6]) > 12 or int(date[4:6]) < 1):
         print("invalid date\n")
         return
-    elif(int(date[7:8]) > 31 or int(date[7:8]) < 1):
+    elif(int(date[-2:]) > 31 or int(date[-2:]) < 1):
         print("invalid date\n")
         return
     
