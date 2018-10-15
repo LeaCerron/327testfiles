@@ -1,11 +1,9 @@
 from datetime import datetime
 
-servicenumbers = ["12345",]
-cancelcount = 0
-serviceDeleteCount = {}
-
-def cancelTicket(account, cancelaccount):
-    if cancelaccount not in servicenumbers:
+def cancelTicket(account, servicenumnbers, cancelcount, canceldict):
+    #get service number
+    serviceNumber = input("Please enter service number: ")
+    if serviceNumber not in servicenumbers:
         #check if the service number is in the valid services list
         print("Service number not in the valid services list")
         return(0)
@@ -24,31 +22,30 @@ def cancelTicket(account, cancelaccount):
         print("Number of tickets should be between 1 and 1000")
         return(0)
     if (account == 'agent'):
-        if(cancelaccount in cancelTicketCount):
+        if(serviceNumber in cancelDict):
             #agent cannot cancel more than 10 tickets per service per session
-            if(tickets + cancelTicketCount[cancelaccount] > 10):
+            if(tickets + cancelDict[serviceNumber] > 10):
                 print("Agents are only allowed to delete 10 tickets per service per session")
                 return(0)
             else:
-                cancelcounter += tickets
+                cancelcount += tickets
         if(tickets + cancelcount > 20):
             #agents cannot cancel more than 20 tickers in one session
             print("Agents are only allowed to cancel 20 tickets per session")
             return(0)
     today = datetime.now()
-    addToTransactions("DEL " + cancelaccount + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
+    addToTransactions("DEL " + serviceNumber + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
     return(null)
 
 def sellTicket(account, sellaccount):
     if sellaccount not in servicenumbers:
         return(0,"invalid service number")
-    print("please enter the number ot tickets to sell: ")
-    tickets = input() #enter number of tickets
+    tickets = input("please enter the number ot tickets to sell: ") #enter number of tickets
     if((int(tickets) < 1) | (int(tickets) > 1000)):
         return(0,"invalid number of tickets")
     today = datetime.now()
     addToTransactions("SEL " + sellaccount + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
-    return(null)
+    return(cancelCount,cancelDict)
 
 def endoffile(string):
     print(string)
