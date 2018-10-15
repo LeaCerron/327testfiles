@@ -7,6 +7,7 @@ serviceDeleteCount = {}
 def cancelticket(account, cancelaccount):
     if cancelaccount not in servicenumbers:
         return(0,"invalid service number")
+    print("please enter the number ot tickets to delet: ")
     tickets = input() #enter number of tickets
     
     if(account == 'agent'):
@@ -26,6 +27,7 @@ def cancelticket(account, cancelaccount):
 def sellticket(account, sellaccount):
     if sellaccount not in servicenumbers:
         return(0,"invalid service number")
+    print("please enter the number ot tickets to sell: ")
     tickets = input() #enter number of tickets
     if((int(tickets) < 1) | (int(tickets) > 1000)):
         return(0,"invalid number of tickets")
