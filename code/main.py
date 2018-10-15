@@ -1,5 +1,5 @@
 #front end of bus ticket service, allows commands over list of services, has user interface
-#arguments when run are name of input file, and name of output file
+#arguments when running the main are the name of the input file and output file
 #will take the valid services file as input
 #will output a transaction summary file
 import sys
@@ -84,21 +84,21 @@ def deleteService(account, serviceList):
 def cancelTicket(account, serviceList, cancelCounter, cancelDict):
     serviceNumber = input("Enter a service number: ")
     if (serviceNumber not in serviceList):
-        print("Service number not in the valid services list")
+        print("service number not in the valid services list")
         return 0
     tickets = int(input("Enter the number ot tickets to delete: ")) #enter number of tickets 
     #check number of tickets,must be between 1 and 1000
     if (tickets < 1) | (tickets > 1000):
-        print("Number of tickets should be between 1 and 1000")
+        print("number of tickets should be between 1 and 1000")
         return 0
     if (account == 'agent'):
         #agent cannot cancel more than 10 tickets per service per session
         if (tickets + cancelDict[serviceNumber] > 10):
-            print("Agents are only allowed to delete 10 tickets per service per session")
+            print("agents are only allowed to delete 10 tickets per service per session")
             return 0
         if (tickets + cancelcount > 20):
             #agents cannot cancel more than 20 tickers in one session
-            print("Agents are only allowed to cancel 20 tickets per session")
+            print("agents are only allowed to cancel 20 tickets per session")
             return 0
 
     cancelCounter += tickets
@@ -109,9 +109,9 @@ def cancelTicket(account, serviceList, cancelCounter, cancelDict):
 
 
 def sellTicket(account, serviceList):
-    serviceNumber = input("Enter a service number: ")
+    serviceNumber = input("Enter a service number: \n")
     if (serviceNumber not in serviceList):
-        print("Invalid service number\n")
+        print("Invalid service number")
         return
     #enter number of tickets
     tickets = input("Enter the number ot tickets to sell: ") 
@@ -125,24 +125,24 @@ def sellTicket(account, serviceList):
 def changeTicket(account, serviceList, changeCounter):
     #if the agent has already changed more than 20 tickets, leave immediately
     if (account == "agent") and (changeCounter > 20):
-        print("agent cannot change more than 20 in a single session \n")
+        print("agent cannot change more than 20 in a single session")
         return 0
     #gets the current service number    
-    currentNumber = input("enter the current service number \n")
+    currentNumber = input("Enter the current service number: \n")
     if not(currentNumber in serviceList):
         print("invalid service number")
         return 0
     #gets the new destination service number
-    newNumber = input("enter the new service number \n")
+    newNumber = input("Enter the new service number:\n")
     if not(newNumber in serviceList):
         print("invalid service number")
         return 0
     #gets the number of tickets bein changed
-    ticketsChanged = input("enter the number of tickets you are changing \n")
+    ticketsChanged = input("Enter the number of tickets you are changing \n")
     #if agent, checks for the number of tickets changed
     if (account == "agent"):
         if ((int(ticketsChanged) + changeCounter) > 20):
-            print("agent cannot change more than 20 in a single session \n")
+            print("agent cannot change more than 20 in a single session")
             return 0
     #checks the current date and adds the trasaction to summary file
     currentDateTime = datetime.datetime.now()
@@ -152,16 +152,15 @@ def changeTicket(account, serviceList, changeCounter):
     return int(ticketsChanged) + changeCounter
 
 def main():
-    entered = input("Begin session: ")
+    entered = input("Begin session: \n")
     #not allow anything other than login
     while not (entered == "login"):
-        print("Please login before doing any commands")
-        entered = input()
+        entered = input("Login before doing any commands: \n")
 
     #once typed login, no escape until successful login
-    account = input("Enter the login type: ")
+    account = input("Enter the login type: \n")
     while not (account == "agent" or account == "planner"):
-        account = input("Error, not a valid login type. Please try again: ")
+        account = input("Error, not a valid login type. Try again: \n")
 
     #at successful login, load valid services list
     service = open(serviceFile, "r")
@@ -184,7 +183,7 @@ def main():
 
 
     while True:
-        entered = input()
+        entered = input("Enter command: \n")
 
         #accept either service commands or logout
         if (entered == "createservice"):
@@ -195,7 +194,7 @@ def main():
         elif (entered == "sellticket"):
             sellTicket(account, serviceList)
         elif (entered == "cancelticket"):
-            cancelCount = cancelTicket(account, serviceList, cancelCounter, cancelDict)
+            cancelCounter = cancelTicket(account, serviceList, cancelCounter, cancelDict)
         elif (entered == "changeticket"):
             changeCounter = changeTicket(account, serviceList, changeCounter)
         elif (entered == "logout"):
