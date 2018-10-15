@@ -39,21 +39,14 @@ def cancelTicket(account, servicenumnbers, cancelcount, canceldict):
 
 def sellTicket(account, sellaccount):
     if sellaccount not in servicenumbers:
-        return(0,"invalid service number")
+        print("invalid service number")
+        return(0)
     tickets = input("please enter the number ot tickets to sell: ") #enter number of tickets
     if((int(tickets) < 1) | (int(tickets) > 1000)):
-        return(0,"invalid number of tickets")
+        print("invalid number of tickets")
+        return(0)
     today = datetime.now()
     addToTransactions("SEL " + sellaccount + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
     return(cancelCount,cancelDict)
-
-def endoffile(string):
-    print(string)
-    return(1)
-
-def main():
-    string = input()
-    number = input()
-    cancelTicket(string,number)
 
 main()
