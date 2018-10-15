@@ -1,6 +1,6 @@
 from datetime import datetime
 
-def cancelTicket(account, serviceList, cancelcount, canceldict):
+def cancelTicket(account, serviceList, cancelCount, cancelDict):
     #get service number
     serviceNumber = input("Please enter service number: ")
     if serviceNumber not in serviceList:
@@ -35,7 +35,7 @@ def cancelTicket(account, serviceList, cancelcount, canceldict):
             return(0)
     today = datetime.now()
     addToTransactions("DEL " + serviceNumber + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
-    return(null)
+    return(cancelCount)
 
 def sellTicket(account, serviceList):
     #ask for service number
