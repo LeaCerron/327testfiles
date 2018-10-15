@@ -3,7 +3,7 @@ import datetime
 def changeTicket(account, serviceList, changeCounter):
     #if the agent has already changed more than 20 tickets, leave immediately
     if (account == "agent") and (changeCounter > 20):
-        print("agent cannot change more than 20 in a single session \n")
+        print("agent cannot change more than 20 tickets in a single session \n")
         return 0
     #gets the current service number    
     currentNumber = input("enter the current service number \n")
@@ -20,7 +20,7 @@ def changeTicket(account, serviceList, changeCounter):
     #if agent, checks for the number of tickets changed
     if (account == "agent"):
         if ((int(ticketsChanged) + changeCounter) > 20):
-            print("agent cannot change more than 20 in a single session \n")
+            print("agent cannot change more than 20 tickets in a single session \n")
             return 0
     #checks the current date and adds the trasaction to summary file
     currentDateTime = datetime.datetime.now()
