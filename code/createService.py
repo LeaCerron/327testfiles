@@ -7,7 +7,7 @@ def createService(account, serviceList):
     if(newNumber in serviceList):
         print("invalid service number")
         return 0
-    elif (newNumber[:1] = "0" || not(newNumber.len = 5):
+    elif (newNumber[:1] = "0" | not(newNumber.len = 5):
         print("invalid service number")
         return 0
         
@@ -16,22 +16,22 @@ def createService(account, serviceList):
     if(date.len > 8):
         print("invalid date")
         return 0
-    elif(int(date[:4]) > 2999 || int(date[:4]) < 1980):
+    elif(int(date[:4]) > 2999 | int(date[:4]) < 1980):
         print("invalid date")
         return 0
-    elif(int(date[5:6]) > 12 || int(date[5:6]) < 1):
+    elif(int(date[5:6]) > 12 | int(date[5:6]) < 1):
         print("invalid date")
         return 0
-    elif(int(date[7:8]) > 31 || int(date[7:8]) < 1):
+    elif(int(date[7:8]) > 31 | int(date[7:8]) < 1):
         print("invalid date")
         return 0
     
     print("Enter a name for the service (3-39 characters, cannot begin/end with a space)")
     name = input()
-    if(name.len > 39 || name.len < 3):
+    if(name.len > 39 | name.len < 3):
         print("invalid service name")
         return 0
-    elif(name[:1] = " " || name[:-1] = " "):
+    elif(name[:1] = " " | name[:-1] = " "):
         print("invalid service name")
         return 0
     
