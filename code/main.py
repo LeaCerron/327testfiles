@@ -32,22 +32,26 @@ while line != "00000":
 open(summaryFile, "a").close() #how to handle if already exist??
 
 #defining counter variables
-cancelCounter = 0
 changeCounter = 0
+cancelCounter = 0
+cancelDict = {}
+for i in serviceList:
+    cancelDict[i] = 0
 
 
 while True:
     entered = input()
 
     #accept either service commands or logout
-    if entered == "createservive":
-        createServive(account, serviceList)
+    if entered == "createservice":
+        createService(account, serviceList)
     elif entered == "deleteservice":
-        deleteService(account, serviceList)
+        deleted = deleteService(account, serviceList)
+        serviceList.remove(deleted) #delete service
     elif entered == "sellticket":
-        sellTicket(account, serviceList) #does it need counter
+        sellTicket(account, serviceList)
     elif entered == "cancelticket":
-        cancelCounter = cancelTicket(account, serviceList, cancelCounter)
+        cancelCounter = cancelTicket(account, serviceList, cancelCounter, cancelDic)
     elif entered == "changeticket":
         changeCounter = changeTicket(account, serviceList, changeCounter)
     elif entered == "logout":
