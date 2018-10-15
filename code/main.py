@@ -1,3 +1,7 @@
+#front end of bus ticket service, allows commands over list of services, has user interface
+#arguments when run are name of input file, and name of output file
+#will take the valid services file as input
+#will output a transaction summary file
 import sys
 import datetime
 
@@ -199,4 +203,4 @@ def main():
         else:
             print("Invalid command, try again")
 
-main()
+main() #run the program
