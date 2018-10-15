@@ -28,8 +28,8 @@ def cancelTicket(account, serviceList, cancelCount, cancelDict):
                 print("Agents are only allowed to delete 10 tickets per service per session")
                 return(0)
             else:
-                cancelcount += tickets
-        if(tickets + cancelcount > 20):
+                cancelCount += tickets
+        if(tickets + cancelCount > 20):
             #agents cannot cancel more than 20 tickers in one session
             print("Agents are only allowed to cancel 20 tickets per session")
             return(0)
@@ -49,6 +49,4 @@ def sellTicket(account, serviceList):
         return(0)
     today = datetime.now()
     addToTransactions("SEL " + serviceNumber + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
-    return(cancelCount,cancelDict)
-
-main()
+    return
