@@ -28,7 +28,7 @@ def changeTicket(account, serviceList, changeCounter):
     currentDateTime = datetime.datetime.now()
     addToTransactions("CHG " + currentNumber + " " + ticketsChanged + " " +
                      newNumber + " **** " + str(currentDateTime.year) +
-                     str(currentDateTime.month) +str(currentDateTime.day))
+                     str(currentDateTime.month) +str(currentDateTime.day) + "\n")
     
     return ticketsChanged
             
