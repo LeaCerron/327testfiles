@@ -13,7 +13,7 @@ def deleteService(account, serviceList):
     
     print("Enter the name of the service to be deleted:\n")
     name = input()
-    if(name.len > 39 | name.len < 3):
+    if(len(name) > 39 | len(name) < 3):
         print("invalid service name\n")
         return
     elif(name[:1] == " " | name[:-1] == " "):
