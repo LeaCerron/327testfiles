@@ -1,0 +1,6 @@
+login
+planner
+sellticket
+10000
+1
+logout
