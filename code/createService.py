@@ -1,39 +1,37 @@
 def createService(account, serviceList):
-    if(account == "agent"):
-        print("agent cannot create services")
-        return 0;
-    print("Enter the new service number")
-    newNumber = input()
-    if(newNumber in serviceList):
-        print("invalid service number")
-        return 0
-    elif (newNumber[:1] = "0" | not(newNumber.len = 5):
-        print("invalid service number")
-        return 0
-        
-    print("Enter the date of the service: YYYYMMDD")
-    date = input()
-    if(date.len > 8):
-        print("invalid date")
-        return 0
-    elif(int(date[:4]) > 2999 | int(date[:4]) < 1980):
-        print("invalid date")
-        return 0
-    elif(int(date[5:6]) > 12 | int(date[5:6]) < 1):
-        print("invalid date")
-        return 0
-    elif(int(date[7:8]) > 31 | int(date[7:8]) < 1):
-        print("invalid date")
-        return 0
+    if (account == "agent"):
+        print("agent cannot create services\n")
+        return
+
+    newNumber = input("Enter the new service number:\n")
+    if (newNumber in serviceList):
+        print("invalid service number\n")
+        return
+    elif (newNumber[:1] == "0" or len(newNumber) != 5):
+        print("invalid service number\n")
+        return
+
+    date = input("Enter the date of the service(YYYYMMDD):\n")
+    if (len(date) > 8):
+        print("invalid date\n")
+        return
+    elif (int(date[0:4]) > 2999 or int(date[0:4]) < 1980):
+        print("invalid date\n")
+        return
+    elif (int(date[4:6]) > 12 or int(date[4:6]) < 1):
+        print("invalid date\n")
+        return
+    elif (int(date[-2:]) > 31 or int(date[-2:]) < 1):
+        print("invalid date\n")
+        return
     
-    print("Enter a name for the service (3-39 characters, cannot begin/end with a space)")
-    name = input()
-    if(name.len > 39 | name.len < 3):
-        print("invalid service name")
-        return 0
-    elif(name[:1] = " " | name[:-1] = " "):
-        print("invalid service name")
-        return 0
+    name = input("Enter a name for the service (3-39 characters, cannot begin/end with a space):\n")
+    if (len(name) > 39 or len(name) < 3):
+        print("invalid service name\n")
+        return
+    elif (name[:1] == " " or name[-1:] == " "):
+        print("invalid service name\n")
+        return
     
-    addToTransactions("CRE " + newNumber + " 0 00000 " + name + " " + date)
-    return 1:
+    print("Service successfuly created\n")
+    return

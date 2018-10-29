@@ -1,3 +1,12 @@
 login
-agent
+planner
+cancelticket
+10000
+10
+cancelticket
+10001
+10
+cancelticket
+10002
+1
 logout

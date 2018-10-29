@@ -1,6 +1,6 @@
 login
 agent
-cancelticket
+selltickets
 10000
 0
 logout

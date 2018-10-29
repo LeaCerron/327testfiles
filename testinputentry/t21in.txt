@@ -1,0 +1,6 @@
+login
+agent
+selltickets
+10000
+1001
+logout

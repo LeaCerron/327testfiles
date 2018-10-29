@@ -1,3 +1,7 @@
 login
 agent
+changeticket
+20000
+10000
+1
 logout

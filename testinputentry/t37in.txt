@@ -1,6 +1,7 @@
 login
 agent
-cancelticket
+changeticket
 10000
+10001
 1
 logout
