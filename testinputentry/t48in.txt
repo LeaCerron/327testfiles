@@ -1,0 +1,7 @@
+login
+planner
+createservice
+10000
+30000001
+new service name
+logout

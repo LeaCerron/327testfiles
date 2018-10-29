@@ -1,2 +1,2 @@
-CRE 10000 0 00000 new service name 20000101
+CRE 10000 0 00000 new service name 0
 EOS 00000 0 00000 **** 0
