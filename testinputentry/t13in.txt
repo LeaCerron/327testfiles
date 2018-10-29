@@ -1,0 +1,6 @@
+input
+agent
+deleteservice
+10000
+exampleName
+logout
