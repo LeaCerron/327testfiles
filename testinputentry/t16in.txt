@@ -1,0 +1,7 @@
+login
+planner
+10000
+exampleName
+sellticket
+10000
+logout
