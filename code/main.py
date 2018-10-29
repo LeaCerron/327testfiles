@@ -3,7 +3,7 @@
 #will take the valid services file as input
 #will output a transaction summary file
 import sys
-import datetime
+from datetime import datetime
 
 serviceFile = sys.argv[1]
 summaryFile = sys.argv[2]
@@ -11,6 +11,7 @@ summaryFile = sys.argv[2]
 def addToTransactions(transactionCode):
     transaction = open(summaryFile, "a")
     transaction.write(transactionCode)
+    transaction.write("\n")
     transaction.close()
 
 #creates a new service based on input from the user; service number, date, and service name
@@ -103,8 +104,7 @@ def cancelTicket(account, serviceList, cancelCounter, cancelDict):
 
     cancelCounter += tickets
 
-    today = datetime.now()
-    addToTransactions("DEL " + cancelaccount + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
+    addToTransactions("DEL " + serviceNumber + " " + tickets + " 00000 **** " + "0")
     return cancelCounter
 
 
@@ -118,8 +118,7 @@ def sellTicket(account, serviceList):
     if ((int(tickets) < 1) | (int(tickets) > 1000)):
         print("Invalid number of tickets")
         return
-    today = datetime.now()
-    addToTransactions("SEL " + sellaccount + " " + tickets + " 00000 **** " + today.strftime("%Y%m%d"))
+    addToTransactions("SEL " + serviceNumber + " " + tickets + " 00000 **** " + "0")
     return
 
 def changeTicket(account, serviceList, changeCounter):
@@ -145,10 +144,8 @@ def changeTicket(account, serviceList, changeCounter):
             print("agent cannot change more than 20 in a single session")
             return 0
     #checks the current date and adds the trasaction to summary file
-    currentDateTime = datetime.datetime.now()
     addToTransactions("CHG " + currentNumber + " " + ticketsChanged + " " +
-                     newNumber + " **** " + str(currentDateTime.year) +
-                     str(currentDateTime.month) +str(currentDateTime.day) + "\n")
+                     newNumber + " **** " + "0")
     return int(ticketsChanged) + changeCounter
 
 def main():
