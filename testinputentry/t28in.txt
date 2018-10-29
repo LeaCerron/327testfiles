@@ -1,3 +1,9 @@
 login
 agent
+cancelticket
+10000
+7
+cancelticket
+10000
+5
 logout
