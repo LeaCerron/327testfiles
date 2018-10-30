@@ -1,6 +1,6 @@
 login
 agent
 cancelticket
-10000
+99999
 1
 logout
