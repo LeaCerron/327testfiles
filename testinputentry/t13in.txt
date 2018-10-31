@@ -1,4 +1,4 @@
-input
+login
 agent
 deleteservice
 10000

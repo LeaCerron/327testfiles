@@ -1,6 +1,6 @@
 login
 agent
-selltickets
+sellticket
 10000
 1001
 logout
