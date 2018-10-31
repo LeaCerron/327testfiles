@@ -33,7 +33,7 @@ def createService(account, serviceList):
     except:
         print("invalid date")
         return
-    if (len(date) > 8):
+    if (len(str(date)) > 8):
         print("invalid date\n")
         return
     elif ((date[0:4]) > 2999 or (date[0:4]) < 1980):
