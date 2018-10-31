@@ -1,0 +1,7 @@
+login
+planner
+createservice
+99999
+20000101
+new service name!
+logout
