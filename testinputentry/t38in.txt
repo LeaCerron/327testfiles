@@ -1,6 +1,6 @@
 login
 agent
 createservice 
-10000
+99999
 20000101
 logout
