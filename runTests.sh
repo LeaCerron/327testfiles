@@ -13,6 +13,9 @@ for (( i = 1; i <= $num; i++ )); do #using value of i to use files needed for ea
     python3 code/main.py serviceList.txt actualoutput/${i}.txt < testinputentry/t${i}in.txt > actualoutput/${i}.log
 done
 
+#name of log file which will contain record of which tests fail
+log="log$(date +_%Y_%m_%T)" #uses date so will not be overridden when running tests again
+
 #checking actual output with expected output
 for (( i = 1; i <= $num; i++ )); do
     echo "checking outputs of test $i"
@@ -27,22 +30,21 @@ for (( i = 1; i <= $num; i++ )); do
     #name of actual terminal output file
     terminal="t${i}out.log"
 
-    #name of log file which will contain record of which tests fail
-    log="log$(date +_%Y_%m_%T)" #uses date so will not be overridden when running tests again
 
-    #this section needs fixed
-    filediff="$(diff -wc actualoutput/${i}.txt testoutput/$output)"
+    #get if a difference exists or not
+    diff -wc actualoutput/${i}.txt testoutput/$output > /dev/null
     resultfile=$?
-    terminaldiff="$(diff -wc actualoutput/${i}.log testoutputterminal/$terminal)"
+    diff -wc actualoutput/${i}.log testoutputterminal/$terminal > /dev/null
     resultterminal=$?
 
     #if either output didn't match then fail test
     if [[ $resultfile != 0 || $resultterminal != 0 ]]; then
         echo "test $i failed" >> logfiles/$log
-        echo $filediff >> logfiles/$log 
-        echo >> logfiles/$log
-        echo $terminaldiff >> logfiles/$log
+        #record the differences to make error log easier to analyse
+        diff -wc actualoutput/${i}.txt testoutput/$output >> logfiles/$log
+        diff -wc actualoutput/${i}.log testoutputterminal/$terminal >> logfiles/$log
         echo >> logfiles/$log #make a space for readability 
-   fi
+
+    fi
    
 done
