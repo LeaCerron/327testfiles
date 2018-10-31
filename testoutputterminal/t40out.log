@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Begin session:
 Enter the login type:
 Enter command:
@@ -12,3 +13,19 @@ Invalid command, try again
 Enter a command: 
 Invalid command, try again
 Enter a command: 
+=======
+Begin session:
+Enter the login type:
+Enter command:
+Enter the new service number:
+Enter the date of the service(YYYYMMDD):
+Enter a name for the service (3-39 characters, cannot begin/end with a space):
+Enter command:
+Enter a service number: 
+Invalid service number
+Enter a command: 
+Invalid command, try again
+Enter a command: 
+Invalid command, try again
+Enter a command: 
+>>>>>>> 2db1de9dba6e6f63b19a26927a8d4f0f52c9af92

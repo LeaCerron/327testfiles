@@ -17,15 +17,15 @@ def addToTransactions(transactionCode):
 #available only to "planner", returns null if the user inputs any invalid data
 def createService(account, serviceList):
     if (account == "agent"):
-        print("agent cannot create services\n")
+        print("agent cannot create services")
         return
     #prompts for and validates the service number
-    newNumber = input("Enter the new service number:\n")
+    newNumber = input("Enter the new service number: \n")
     if (newNumber in serviceList):
-        print("invalid service number\n")
+        print("invalid service number")
         return
     elif (newNumber[:1] == "0" or len(newNumber) != 5):
-        print("invalid service number\n")
+        print("invalid service number")
         return
     #prompts for and validates the service date
     try:
@@ -48,10 +48,10 @@ def createService(account, serviceList):
     #prompts for and validates the service name
     name = input("Enter a name for the service (3-39 characters, cannot begin/end with a space):\n")
     if (len(name) > 39 or len(name) < 3):
-        print("invalid service name\n")
+        print("invalid service name")
         return
     elif (name[:1] == " " or name[-1:] == " "):
-        print("invalid service name\n")
+        print("invalid service name")
         return
     addToTransactions("CRE " + newNumber + " 0 00000 " + name + " " + str(date))
     return
@@ -60,18 +60,18 @@ def createService(account, serviceList):
 #available only to "planner"
 def deleteService(account, serviceList):
     if (account == "agent"):
-        print("agent cannot delete services\n")
+        print("agent cannot delete services")
         return
     #checks that the service number is valid
     service = input("Enter the service number to be deleted:\n")
     if not(service in serviceList):
-        print("invalid service number\n")
+        print("invalid service number")
         return
     #prompts the user for a valid service name
     print("Enter the name of the service to be deleted:\n")
     name = input()
     if (len(name) > 39 | len(name) < 3):
-        print("invalid service name\n")
+        print("invalid service name")
         return
     elif (name[0] == " ") or (name[-1] == " "):
         print("invalid service name\n")
@@ -82,7 +82,7 @@ def deleteService(account, serviceList):
 
 
 def cancelTicket(account, serviceList, cancelCounter, cancelDict):
-    serviceNumber = input("Enter a service number: ")
+    serviceNumber = input("Enter a service number: \n")
     if (serviceNumber not in serviceList):
         print("service number not in the valid services list")
         return cancelCounter
@@ -91,6 +91,7 @@ def cancelTicket(account, serviceList, cancelCounter, cancelDict):
     except:
         print("invalid number of tickets")
         return cancelCounter
+
     #check number of tickets,must be between 1 and 1000
     if (tickets < 1) | (tickets > 1000):
         print("number of tickets should be between 1 and 1000")

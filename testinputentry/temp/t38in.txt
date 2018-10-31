@@ -1,6 +1,0 @@
-login
-agent
-createservice 
-99999
-20000101
-logout
