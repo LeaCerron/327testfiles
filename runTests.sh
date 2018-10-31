@@ -48,7 +48,6 @@ done
             diff -wc actualoutput/${i}.txt testoutput/$output >> logfiles/$log
             diff -wc actualoutput/${i}.log testoutputterminal/$terminal >> logfiles/$log
             echo >> logfiles/$log #make a space for readability 
-
         fi
     fi
 done
