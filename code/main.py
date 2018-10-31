@@ -87,7 +87,7 @@ def cancelTicket(account, serviceList, cancelCounter, cancelDict):
         print("service number not in the valid services list")
         return cancelCounter
     try:
-        tickets = int(input("Enter the number of tickets to cancel: /n")) #enter number of tickets
+        tickets = int(input("Enter the number of tickets to cancel: \n")) #enter number of tickets
     except:
         print("invalid number of tickets")
         return cancelCounter
