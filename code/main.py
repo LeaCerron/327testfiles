@@ -3,7 +3,6 @@
 #will take the valid services file as input
 #will output a transaction summary file
 import sys
-from datetime import datetime
 
 serviceFile = sys.argv[1]
 summaryFile = sys.argv[2]
@@ -60,12 +59,11 @@ def deleteService(account, serviceList):
         print("agent cannot delete services\n")
         return
     #checks that the service number is valid
-    print("Enter the service number to be deleted:\n")
-    service = input()
+    service = input("Enter the service number to be deleted:\n")
     if not(service in serviceList):
         print("invalid service number\n")
         return
-    elif (newNumber[:1] == "0" | len(newNumber) != 5):
+    elif (service[:1] == "0" | len(service) != 5):
         print("invalid service number\n")
         return
     #prompts the user for a valid service name
@@ -97,7 +95,7 @@ def cancelTicket(account, serviceList, cancelCounter, cancelDict):
         if (tickets + cancelDict[serviceNumber] > 10):
             print("agents are only allowed to delete 10 tickets per service per session")
             return 0
-        if (tickets + cancelcount > 20):
+        if (tickets + cancelCounter > 20):
             #agents cannot cancel more than 20 tickers in one session
             print("agents are only allowed to cancel 20 tickets per session")
             return 0
@@ -178,7 +176,6 @@ def main():
     for i in serviceList:
         cancelDict[i] = 0
 
-
     while True:
         entered = input("Enter command: \n")
 
@@ -187,7 +184,8 @@ def main():
             createService(account, serviceList)
         elif (entered == "deleteservice"):
             deleted = deleteService(account, serviceList)
-            serviceList.remove(deleted) #delete service from active
+            if (deleted is not None):
+                serviceList.remove(deleted) #delete service from active
         elif (entered == "sellticket"):
             sellTicket(account, serviceList)
         elif (entered == "cancelticket"):
