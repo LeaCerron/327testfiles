@@ -69,7 +69,7 @@ def deleteService(account, serviceList):
     if (len(name) > 39 | len(name) < 3):
         print("invalid service name\n")
         return
-    elif (name[:1] == " " | name[-1:] == " "):
+    elif (name[0] == " " | name[-1] == " "):
         print("invalid service name\n")
         return
     
