@@ -36,13 +36,13 @@ def createService(account, serviceList):
     if (len(str(date)) > 8):
         print("invalid date\n")
         return
-    elif ((date[0:4]) > 2999 or (date[0:4]) < 1980):
+    elif ((date // 10000) > 2999 or (date // 10000) < 1980):
         print("invalid date\n")
         return
-    elif ((date[4:6]) > 12 or (date[4:6]) < 1):
+    elif ((date % 10000 // 100) > 12 or (date % 10000 // 100) < 1):
         print("invalid date\n")
         return
-    elif ((date[-2:]) > 31 or (date[-2:]) < 1):
+    elif ((date % 100) > 31 or (date % 100) < 1):
         print("invalid date\n")
         return
     #prompts for and validates the service name
