@@ -34,16 +34,16 @@ def createService(account, serviceList):
         print("invalid date")
         return
     if (len(str(date)) > 8):
-        print("invalid date\n")
+        print("invalid date")
         return
     elif ((date // 10000) > 2999 or (date // 10000) < 1980):
-        print("invalid date\n")
+        print("invalid date")
         return
     elif ((date % 10000 // 100) > 12 or (date % 10000 // 100) < 1):
-        print("invalid date\n")
+        print("invalid date")
         return
     elif ((date % 100) > 31 or (date % 100) < 1):
-        print("invalid date\n")
+        print("invalid date")
         return
     #prompts for and validates the service name
     name = input("Enter a name for the service (3-39 characters, cannot begin/end with a space):\n")
@@ -74,7 +74,7 @@ def deleteService(account, serviceList):
         print("invalid service name")
         return
     elif (name[0] == " ") or (name[-1] == " "):
-        print("invalid service name\n")
+        print("invalid service name")
         return
     
     addToTransactions("DEL " + service + " 0 00000 " + name + " " + "0")
