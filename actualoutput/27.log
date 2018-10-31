@@ -1,11 +1,6 @@
 Begin session: 
 Enter the login type: 
 Enter command: 
-<<<<<<< HEAD
-Enter a service number: Enter the number ot tickets to cancel: agents are only allowed to delete 10 tickets per service per session
-=======
 Enter a service number: 
-Enter the number ot tickets to delete: 
-agents are only allowed to delete 10 tickets per service per session
->>>>>>> 2db1de9dba6e6f63b19a26927a8d4f0f52c9af92
+Enter the number ot tickets to cancel: agents are only allowed to delete 10 tickets per service per session
 Enter command: 
