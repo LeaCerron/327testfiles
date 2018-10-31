@@ -1,0 +1,10 @@
+login
+planner
+createservice
+10000
+20000101
+new service name
+sellticket
+10000
+1
+logout
