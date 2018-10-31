@@ -1,0 +1,513 @@
+test 16 failed
+*** actualoutput/16.txt	2018-10-31 18:33:53.195843500 -0400
+--- testoutput/t16out.txt	2018-10-31 17:25:55.631000000 -0400
+***************
+*** 1,2 ****
+! DEL 10000 0 00000 exampleName 0
+  EOS 00000 0 00000 **** 0
+--- 1,2 ----
+! DEL 10000 1 00000 exampleName 0
+  EOS 00000 0 00000 **** 0
+
+test 17 failed
+*** actualoutput/17.log	2018-10-31 18:33:53.280027700 -0400
+--- testoutputterminal/t17out.log	2018-10-31 13:59:26.826792900 -0400
+***************
+*** 2,5 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: /nEnter command: 
+--- 2,6 ----
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: 
+! Enter command:
+
+test 18 failed
+*** actualoutput/18.log	2018-10-31 18:33:53.371881500 -0400
+--- testoutputterminal/t18out.log	2018-10-31 13:59:26.827790500 -0400
+***************
+*** 2,5 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: /nEnter command: 
+--- 2,6 ----
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: 
+! Enter command:
+
+test 20 failed
+*** actualoutput/20.log	2018-10-31 18:33:53.526877800 -0400
+--- testoutputterminal/t20out.log	2018-10-31 13:59:26.829785300 -0400
+***************
+*** 2,6 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: /nInvalid number of tickets
+  Enter command: 
+--- 2,7 ----
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: 
+! Invalid number of tickets
+  Enter command:
+
+test 21 failed
+*** actualoutput/21.log	2018-10-31 18:33:53.641414500 -0400
+--- testoutputterminal/t21out.log	2018-10-31 13:59:26.830782500 -0400
+***************
+*** 2,6 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: /nInvalid number of tickets
+  Enter command: 
+--- 2,7 ----
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: 
+! Invalid number of tickets
+  Enter command:
+
+test 22 failed
+*** actualoutput/22.log	2018-10-31 18:33:53.746182300 -0400
+--- testoutputterminal/t22out.log	2018-10-31 17:46:40.529686100 -0400
+***************
+*** 2,6 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: /nInvalid number of tickets
+  Enter command: 
+--- 2,7 ----
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: 
+! Invalid number of tickets
+  Enter command:
+
+test 23 failed
+*** actualoutput/23.log	2018-10-31 18:33:53.875849000 -0400
+--- testoutputterminal/t23out.log	2018-10-31 13:59:26.831779300 -0400
+***************
+*** 2,6 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: /nInvalid number of tickets
+  Enter command: 
+--- 2,7 ----
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to sell: 
+! Invalid number of tickets
+  Enter command:
+
+test 24 failed
+*** actualoutput/24.log	2018-10-31 18:33:53.953253400 -0400
+--- testoutputterminal/t24out.log	2018-10-31 13:59:26.832777200 -0400
+***************
+*** 2,5 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nEnter command: 
+--- 2,6 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! Enter command:
+
+test 25 failed
+*** actualoutput/25.log	2018-10-31 18:33:54.050759700 -0400
+--- testoutputterminal/t25out.log	2018-10-31 13:59:26.833774800 -0400
+***************
+*** 2,5 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nEnter command: 
+--- 2,6 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! Enter command:
+\ No newline at end of file
+
+test 27 failed
+*** actualoutput/27.log	2018-10-31 18:33:54.288861800 -0400
+--- testoutputterminal/t27out.log	2018-10-31 17:57:51.352146600 -0400
+***************
+*** 2,6 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nagents are only allowed to delete 10 tickets per service per session
+  Enter command: 
+--- 2,7 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! agents are only allowed to delete 10 tickets per service per session
+  Enter command:
+
+test 28 failed
+*** actualoutput/28.log	2018-10-31 18:33:54.401704500 -0400
+--- testoutputterminal/t28out.log	2018-10-31 18:02:24.959798600 -0400
+***************
+*** 2,8 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nEnter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nagents are only allowed to delete 10 tickets per service per session
+  Enter command: 
+--- 2,10 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! agents are only allowed to delete 10 tickets per service per session
+  Enter command:
+
+test 29 failed
+*** actualoutput/29.log	2018-10-31 18:33:54.533352900 -0400
+--- testoutputterminal/t29out.log	2018-10-31 18:05:42.533580700 -0400
+***************
+*** 2,5 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nEnter command: 
+--- 2,6 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! Enter command:
+
+test 30 failed
+*** actualoutput/30.log	2018-10-31 18:33:54.644933600 -0400
+--- testoutputterminal/t30out.log	2018-10-31 18:05:50.011404500 -0400
+***************
+*** 2,10 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nEnter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nEnter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nagents are only allowed to cancel 20 tickets per session
+  Enter command: 
+--- 2,13 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! agents are only allowed to cancel 20 tickets per session
+  Enter command:
+
+test 31 failed
+*** actualoutput/31.log	2018-10-31 18:33:54.748638900 -0400
+--- testoutputterminal/t31out.log	2018-10-31 18:05:54.474036100 -0400
+***************
+*** 2,9 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nEnter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nEnter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nEnter command: 
+--- 2,12 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! Enter command:
+
+test 32 failed
+*** actualoutput/32.log	2018-10-31 18:33:54.857350000 -0400
+--- testoutputterminal/t32out.log	2018-10-31 18:05:58.034387000 -0400
+***************
+*** 2,6 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number of tickets to cancel: /nnumber of tickets should be between 1 and 1000
+  Enter command: 
+--- 2,7 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+! number of tickets should be between 1 and 1000
+  Enter command:
+
+test 39 failed
+*** actualoutput/39.txt	2018-10-31 18:33:55.657315700 -0400
+--- testoutput/t39out.txt	2018-10-29 17:49:19.678754500 -0400
+***************
+*** 1,2 ****
+! CRE 99999 0 00000 new service name 20000101
+  EOS 00000 0 00000 **** 0
+--- 1,2 ----
+! CRE 10000 0 00000 new service name 0
+  EOS 00000 0 00000 **** 0
+
+test 40 failed
+*** actualoutput/40.txt	2018-10-31 18:33:55.755049200 -0400
+--- testoutput/EOS.txt	2018-10-14 11:52:46.858221600 -0400
+***************
+*** 1,2 ****
+- CRE 99999 0 00000 new service name 20000101
+  EOS 00000 0 00000 **** 0
+--- 1 ----
+*** actualoutput/40.log	2018-10-31 18:33:55.761033400 -0400
+--- testoutputterminal/t40out.log	2018-10-31 18:09:36.818226100 -0400
+***************
+*** 7,12 ****
+  Enter command: 
+  Enter a service number: 
+  Invalid service number
+! Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 7,14 ----
+  Enter command:
+  Enter a service number: 
+  Invalid service number
+! Enter a command: 
+  Invalid command, try again
+! Enter a command: 
+! Invalid command, try again
+! Enter a command: 
+
+test 41 failed
+*** actualoutput/41.log	2018-10-31 18:33:55.858899100 -0400
+--- testoutputterminal/t41out.log	2018-10-31 18:09:35.919308000 -0400
+***************
+*** 1,9 ****
+  Begin session: 
+  Enter the login type: 
+  Enter command: 
+! Invalid command, try again
+! Enter command: 
+! Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 1,9 ----
+  Begin session:
+  Enter the login type:
+  Enter command:
+! Enter the new service number:
+! invalid service number
+  Enter command:
+  Invalid command, try again
+  Enter command: 
++ 
+
+test 42 failed
+*** actualoutput/42.log	2018-10-31 18:33:55.959173400 -0400
+--- testoutputterminal/t42out.log	2018-10-31 18:09:35.135685000 -0400
+***************
+*** 7,10 ****
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 7,10 ----
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command
+
+test 43 failed
+*** actualoutput/43.log	2018-10-31 18:33:56.034060100 -0400
+--- testoutputterminal/t43out.log	2018-10-31 18:09:34.557315000 -0400
+***************
+*** 8,10 ****
+--- 8,11 ----
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
++ 
+
+test 44 failed
+*** actualoutput/44.log	2018-10-31 18:33:56.137526400 -0400
+--- testoutputterminal/t44out.log	2018-10-31 18:09:33.601480600 -0400
+***************
+*** 7,10 ****
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 7,10 ----
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command
+
+test 45 failed
+*** actualoutput/45.log	2018-10-31 18:33:56.226664700 -0400
+--- testoutputterminal/t45out.log	2018-10-31 18:09:32.742273500 -0400
+***************
+*** 4,10 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  invalid date
+- 
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 4,9 ----
+
+test 46 failed
+*** actualoutput/46.log	2018-10-31 18:33:56.311595700 -0400
+--- testoutputterminal/t46out.log	2018-10-31 18:09:31.854380300 -0400
+***************
+*** 4,10 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  invalid date
+- 
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 4,9 ----
+
+test 47 failed
+*** actualoutput/47.log	2018-10-31 18:33:56.386395600 -0400
+--- testoutputterminal/t47out.log	2018-10-31 18:09:30.909299000 -0400
+***************
+*** 4,10 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  invalid date
+- 
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 4,9 ----
+
+test 48 failed
+*** actualoutput/48.log	2018-10-31 18:33:56.498227000 -0400
+--- testoutputterminal/t48out.log	2018-10-31 18:09:29.926305000 -0400
+***************
+*** 4,10 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  invalid date
+- 
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 4,9 ----
+
+test 49 failed
+*** actualoutput/49.log	2018-10-31 18:33:56.598860700 -0400
+--- testoutputterminal/t49out.log	2018-10-31 18:09:28.986018200 -0400
+***************
+*** 4,10 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  invalid date
+- 
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 4,9 ----
+
+test 50 failed
+*** actualoutput/50.log	2018-10-31 18:33:56.687730700 -0400
+--- testoutputterminal/t50out.log	2018-10-31 18:09:27.868644000 -0400
+***************
+*** 4,10 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  invalid date
+- 
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 4,9 ----
+
+test 51 failed
+*** actualoutput/51.log	2018-10-31 18:33:56.780522600 -0400
+--- testoutputterminal/t51out.log	2018-10-31 18:09:26.831853000 -0400
+***************
+*** 4,10 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  invalid date
+- 
+- Enter command: 
+- Invalid command, try again
+  Enter command: 
+--- 4,7 ----
+
+test 52 failed
+*** actualoutput/52.log	2018-10-31 18:33:56.868688800 -0400
+--- testoutputterminal/t52out.log	2018-10-31 18:09:25.663967900 -0400
+***************
+*** 4,10 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  invalid date
+- 
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 4,9 ----
+
+test 55 failed
+*** actualoutput/55.txt	2018-10-31 18:33:57.135190600 -0400
+--- testoutput/EOS.txt	2018-10-14 11:52:46.858221600 -0400
+***************
+*** 1,2 ****
+- CRE 99999 0 00000 new service name! 20000101
+  EOS 00000 0 00000 **** 0
+--- 1 ----
+*** actualoutput/55.log	2018-10-31 18:33:57.147698600 -0400
+--- testoutputterminal/t55out.log	2018-10-31 18:09:22.586685900 -0400
+***************
+*** 4,7 ****
+--- 4,8 ----
+  Enter the new service number:
+  Enter the date of the service(YYYYMMDD):
+  Enter a name for the service (3-39 characters, cannot begin/end with a space):
++ invalid service name
+  Enter command:
+
