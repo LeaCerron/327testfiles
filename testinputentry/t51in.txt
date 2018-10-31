@@ -3,4 +3,5 @@ planner
 createservice
 99999
 20000100
+new service name
 logout

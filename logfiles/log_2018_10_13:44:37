@@ -1,0 +1,350 @@
+test 13 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 155, in main
+    entered = input("Login before doing any commands: \n")
+EOFError: EOF when reading a line
+
+test 14 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 189, in main
+    deleted = deleteService(account, serviceList)
+  File "code/main.py", line 68, in deleteService
+    elif (newNumber[:1] == "0" | len(newNumber) != 5):
+NameError: name 'newNumber' is not defined
+
+test 15 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 190, in main
+    serviceList.remove(deleted) #delete service from active
+ValueError: list.remove(x): x not in list
+
+test 16 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 155, in main
+    entered = input("Login before doing any commands: \n")
+EOFError: EOF when reading a line
+
+test 20 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 155, in main
+    entered = input("Login before doing any commands: \n")
+EOFError: EOF when reading a line
+
+test 21 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 155, in main
+    entered = input("Login before doing any commands: \n")
+EOFError: EOF when reading a line
+
+test 22 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 155, in main
+    entered = input("Login before doing any commands: \n")
+EOFError: EOF when reading a line
+
+test 24 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 194, in main
+    cancelCounter = cancelTicket(account, serviceList, cancelCounter, cancelDict)
+  File "code/main.py", line 100, in cancelTicket
+    if (tickets + cancelcount > 20):
+NameError: name 'cancelcount' is not defined
+
+test 25 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 194, in main
+    cancelCounter = cancelTicket(account, serviceList, cancelCounter, cancelDict)
+  File "code/main.py", line 107, in cancelTicket
+    addToTransactions("DEL " + serviceNumber + " " + tickets + " 00000 **** " + "0")
+TypeError: must be str, not int
+
+test 27 failed
+*** actualoutput/27.log	2018-10-31 13:44:41.596077800 -0400
+--- testoutputterminal/t27out.log	2018-10-30 21:59:00.130882000 -0400
+***************
+*** 2,7 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number ot tickets to delete: 
+  agents are only allowed to delete 10 tickets per service per session
+  Enter command: 
+--- 2,7 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+  agents are only allowed to delete 10 tickets per service per session
+  Enter command:
+\ No newline at end of file
+
+test 28 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 194, in main
+    cancelCounter = cancelTicket(account, serviceList, cancelCounter, cancelDict)
+  File "code/main.py", line 100, in cancelTicket
+    if (tickets + cancelcount > 20):
+NameError: name 'cancelcount' is not defined
+
+test 29 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 194, in main
+    cancelCounter = cancelTicket(account, serviceList, cancelCounter, cancelDict)
+  File "code/main.py", line 107, in cancelTicket
+    addToTransactions("DEL " + serviceNumber + " " + tickets + " 00000 **** " + "0")
+TypeError: must be str, not int
+
+test 30 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 194, in main
+    cancelCounter = cancelTicket(account, serviceList, cancelCounter, cancelDict)
+  File "code/main.py", line 100, in cancelTicket
+    if (tickets + cancelcount > 20):
+NameError: name 'cancelcount' is not defined
+
+test 31 failed
+Traceback (most recent call last):
+  File "code/main.py", line 204, in <module>
+    main() #run the program
+  File "code/main.py", line 194, in main
+    cancelCounter = cancelTicket(account, serviceList, cancelCounter, cancelDict)
+  File "code/main.py", line 107, in cancelTicket
+    addToTransactions("DEL " + serviceNumber + " " + tickets + " 00000 **** " + "0")
+TypeError: must be str, not int
+
+test 32 failed
+*** actualoutput/32.log	2018-10-31 13:44:42.513849000 -0400
+--- testoutputterminal/t32out.log	2018-10-30 21:59:00.143861800 -0400
+***************
+*** 2,7 ****
+  Enter the login type: 
+  Enter command: 
+  Enter a service number: 
+! Enter the number ot tickets to delete: 
+  number of tickets should be between 1 and 1000
+  Enter command: 
+--- 2,7 ----
+  Enter the login type:
+  Enter command:
+  Enter a service number:
+! Enter the number of tickets to delete:
+  number of tickets should be between 1 and 1000
+  Enter command:
+\ No newline at end of file
+
+test 36 failed
+*** actualoutput/36.txt	2018-10-31 13:44:43.307711200 -0400
+--- testoutput/t36out.txt	2018-10-30 17:18:12.432973600 -0400
+***************
+*** 1 ****
+--- 1,2 ----
++ CHG 10000 21 10001 **** 0
+  EOS 00000 0 00000 **** 0
+
+test 38 failed
+*** actualoutput/38.log	2018-10-31 13:44:43.772860300 -0400
+--- testoutputterminal/t38out.log	2018-10-31 12:38:12.864256100 -0400
+***************
+*** 1,7 ****
+  Begin session: 
+  Enter the login type: 
+  Enter command: 
+! Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 1,7 ----
+  Begin session:
+  Enter the login type:
+  Enter command:
+! agent cannot create services
+  Enter command: 
+  Invalid command, try again
+  Enter command:
+
+test 39 failed
+*** actualoutput/39.txt	2018-10-31 13:44:44.072501000 -0400
+--- testoutput/t39out.txt	2018-10-30 17:18:12.444518000 -0400
+***************
+*** 1,2 ****
+! CRE 99999 0 00000 new service name 20000101
+  EOS 00000 0 00000 **** 0
+--- 1,2 ----
+! CRE 10000 0 00000 new service name 0
+  EOS 00000 0 00000 **** 0
+
+test 40 failed
+*** actualoutput/40.txt	2018-10-31 13:44:44.355772600 -0400
+--- testoutput/EOS.txt	2018-10-30 23:25:07.683894200 -0400
+***************
+*** 1,2 ****
+- CRE 99999 0 00000 new service name 20000101
+  EOS 00000 0 00000 **** 0
+--- 1 ----
+*** actualoutput/40.log	2018-10-31 13:44:44.359749100 -0400
+--- testoutputterminal/t40out.log	2018-10-31 13:02:05.175017500 -0400
+***************
+*** 7,12 ****
+  Enter command: 
+  Enter a service number: 
+  Invalid service number
+! Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 7,14 ----
+  Enter command:
+  Enter a service number: 
+  Invalid service number
+! Enter a command: 
+  Invalid command, try again
+! Enter a command: 
+! Invalid command, try again
+! Enter a command: 
+
+test 41 failed
+*** actualoutput/41.log	2018-10-31 13:44:44.649623200 -0400
+--- testoutputterminal/t41out.log	2018-10-31 13:21:31.407439000 -0400
+***************
+*** 1,9 ****
+  Begin session: 
+  Enter the login type: 
+  Enter command: 
+! Invalid command, try again
+! Enter command: 
+! Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 1,9 ----
+  Begin session:
+  Enter the login type:
+  Enter command:
+! Enter the new service number:
+! invalid service number
+  Enter command:
+  Invalid command, try again
+  Enter command: 
++ 
+
+test 42 failed
+*** actualoutput/42.log	2018-10-31 13:44:44.928342500 -0400
+--- testoutputterminal/t42out.log	2018-10-31 13:38:46.133355600 -0400
+***************
+*** 7,10 ****
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 7,10 ----
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command
+
+test 43 failed
+*** actualoutput/43.log	2018-10-31 13:44:45.199055900 -0400
+--- testoutputterminal/t43out.log	2018-10-31 13:38:44.939214000 -0400
+***************
+*** 8,10 ****
+--- 8,11 ----
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
++ 
+
+test 44 failed
+*** actualoutput/44.log	2018-10-31 13:44:45.469360200 -0400
+--- testoutputterminal/t44out.log	2018-10-31 13:38:43.646139300 -0400
+***************
+*** 7,10 ****
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 7,10 ----
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command
+
+test 45 failed
+*** actualoutput/45.txt	2018-10-31 13:44:45.731877000 -0400
+--- testoutput/EOS.txt	2018-10-30 23:25:07.683894200 -0400
+***************
+*** 1,2 ****
+- CRE 99999 0 00000 new service name 2000011 
+  EOS 00000 0 00000 **** 0
+--- 1 ----
+*** actualoutput/45.log	2018-10-31 13:44:45.735918400 -0400
+--- testoutputterminal/t45out.log	2018-10-31 13:01:59.661299100 -0400
+***************
+*** 3,7 ****
+  Enter command: 
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD): 
+! Enter a name for the service (3-39 characters, cannot begin/end with a space):
+  Enter command: 
+--- 3,9 ----
+  Enter command:
+  Enter the new service number:
+  Enter the date of the service(YYYYMMDD):
+! invalid date
+! Enter command: 
+! Invalid command, try again
+  Enter command: 
+
+test 51 failed
+*** actualoutput/51.log	2018-10-31 13:44:46.928814700 -0400
+--- testoutputterminal/t51out.log	2018-10-31 13:01:53.522550700 -0400
+***************
+*** 5,9 ****
+  Enter the date of the service(YYYYMMDD): 
+  invalid date
+  Enter command: 
+- Invalid command, try again
+- Enter command: 
+--- 5,7 ----
+
+test 55 failed
+*** actualoutput/55.txt	2018-10-31 13:44:47.731479400 -0400
+--- testoutput/EOS.txt	2018-10-30 23:25:07.683894200 -0400
+***************
+*** 1,2 ****
+- CRE 99999 0 00000 new service name! 20000101
+  EOS 00000 0 00000 **** 0
+--- 1 ----
+*** actualoutput/55.log	2018-10-31 13:44:47.738314000 -0400
+--- testoutputterminal/t55out.log	2018-10-31 13:01:44.405428000 -0400
+***************
+*** 4,7 ****
+--- 4,8 ----
+  Enter the new service number:
+  Enter the date of the service(YYYYMMDD):
+  Enter a name for the service (3-39 characters, cannot begin/end with a space):
++ invalid service name
+  Enter command:
+

@@ -1,7 +1,0 @@
-login
-planner
-createservice
-99999
-20000001
-new service name
-logout

@@ -1,7 +1,7 @@
 login
 planner
-Createservice
-100000
+createservice
+999999
 20000101
 new service name
 logout
