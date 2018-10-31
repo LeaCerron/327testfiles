@@ -10,7 +10,7 @@ num=$(find ./testinputentry -maxdepth 1 -type f -name "*.txt" | wc -l)
 for (( i = 1; i <= $num; i++ )); do #using value of i to use files needed for each test
     echo "running test $i"
     #running code on test inputs, saving output file and terminal output
-    python3 code/main.py serviceList.txt actualoutput/${i}.txt < testinputentry/t${i}in.txt > actualoutput/${i}.log
+    python code/main.py serviceList.txt actualoutput/${i}.txt < testinputentry/t${i}in.txt > actualoutput/${i}.log
 done
 
 #name of log file which will contain record of which tests fail
