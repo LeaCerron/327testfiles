@@ -3,5 +3,5 @@ planner
 createservice
 99999
 20000101
-new service name  (error)
+new service name 
 logout
