@@ -1,7 +1,7 @@
 login
 planner
 createservice
-10000
+99999
 18001804
 new service name
 logout
