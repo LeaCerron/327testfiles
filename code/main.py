@@ -87,7 +87,7 @@ def cancelTicket(account, serviceList, cancelCounter, cancelDict):
         print("service number not in the valid services list")
         return cancelCounter
     try:
-        tickets = int(input("Enter the number ot tickets to cancel: ")) #enter number of tickets
+        tickets = int(input("Enter the number of tickets to cancel: /n")) #enter number of tickets
     except:
         print("invalid number of tickets")
         return cancelCounter
@@ -105,10 +105,9 @@ def cancelTicket(account, serviceList, cancelCounter, cancelDict):
             #agents cannot cancel more than 20 tickers in one session
             print("agents are only allowed to cancel 20 tickets per session")
             return cancelCounter
-
     cancelCounter += tickets
-
-    addToTransactions("DEL " + serviceNumber + " " + str(tickets) + " 00000 **** " + "0")
+    cancelDict[serviceNumber] = tickets
+    addToTransactions("CAN " + serviceNumber + " " + str(tickets) + " 00000 **** " + "0")
     return cancelCounter
 
 
