@@ -68,7 +68,7 @@ def deleteService(account, serviceList):
         print("invalid service number")
         return
     #prompts the user for a valid service name
-    print("Enter the name of the service to be deleted:\n")
+    print("Enter the name of the service to be deleted:")
     name = input()
     if (len(name) > 39 | len(name) < 3):
         print("invalid service name")
