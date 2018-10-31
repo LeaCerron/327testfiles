@@ -50,7 +50,6 @@ done
             echo >> logfiles/$log #make a space for readability 
         fi
     fi
-done
 
 #clean up temp
 rm temp
