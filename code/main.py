@@ -118,7 +118,7 @@ def sellTicket(account, serviceList):
         print("Invalid service number")
         return
     #enter number of tickets
-    tickets = input("Enter the number ot tickets to sell: ") 
+    tickets = input("Enter the number ot tickets to sell: /n") 
     try:
         if ((int(tickets) < 1) | (int(tickets) > 1000)):
             print("Invalid number of tickets")
