@@ -15,7 +15,7 @@ for (( i = 1; i <= $num; i++ )); do #using value of i to use files needed for ea
     #running code on test inputs, saving output file and terminal output
     python code/main.py serviceList.txt actualoutput/${i}.txt < testinputentry/t${i}in.txt > actualoutput/${i}.log
 done
-
+for (( i = 1; i <= $num; i++ ));
     if [[ $resultpython > 0 ]]; then
         echo "test $i failed" >> logfiles/$log
         cat temp >> logfiles/$log
@@ -50,6 +50,6 @@ done
             echo >> logfiles/$log #make a space for readability 
         fi
     fi
-
+done
 #clean up temp
 rm temp
