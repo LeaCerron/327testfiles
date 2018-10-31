@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Begin session:
 Enter the login type:
 Enter command:
@@ -10,16 +9,3 @@ Enter command:
 Invalid command, try again
 Enter command: 
 
-=======
-Begin session:
-Enter the login type:
-Enter command:
-Enter the new service number:
-invalid service number
-Enter command:
-Invalid command, try again
-Enter command: 
-Invalid command, try again
-Enter command: 
-
->>>>>>> 2db1de9dba6e6f63b19a26927a8d4f0f52c9af92
