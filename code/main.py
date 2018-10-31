@@ -137,7 +137,7 @@ def changeTicket(account, serviceList, changeCounter):
         print("invalid service number")
         return 0
     #gets the number of tickets bein changed
-    ticketsChanged = input("Enter the number of tickets you are changing \n")
+    ticketsChanged = input("Enter the number of tickets you are changing: \n")
     #if agent, checks for the number of tickets changed
     if (account == "agent"):
         if ((int(ticketsChanged) + changeCounter) > 20):
