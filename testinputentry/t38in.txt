@@ -1,0 +1,6 @@
+login
+agent
+createservice 
+10000
+20000101
+logout
