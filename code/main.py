@@ -132,17 +132,17 @@ def changeTicket(account, serviceList, changeCounter):
     #if the agent has already changed more than 20 tickets, leave immediately
     if (account == "agent") and (changeCounter > 20):
         print("agent cannot change more than 20 in a single session")
-        return 0
+        return changeCounter
     #gets the current service number    
     currentNumber = input("Enter the current service number: \n")
     if not(currentNumber in serviceList):
         print("invalid service number")
-        return 0
+        return changeCounter
     #gets the new destination service number
     newNumber = input("Enter the new service number:\n")
     if not(newNumber in serviceList):
         print("invalid service number")
-        return 0
+        return changeCounter
     #gets the number of tickets being changed
     try:
         ticketsChanged = int(input("Enter the number of tickets you are changing: \n"))
@@ -153,7 +153,7 @@ def changeTicket(account, serviceList, changeCounter):
     if (account == "agent"):
         if (ticketsChanged + changeCounter > 20):
             print("agent cannot change more than 20 in a single session")
-            return 0
+            return changeCounter
     #checks the current date and adds the trasaction to summary file
     addToTransactions("CHG " + currentNumber + " " + str(ticketsChanged) + " " + newNumber + " **** " + "0")
     return (ticketsChanged) + changeCounter
