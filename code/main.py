@@ -155,7 +155,7 @@ def changeTicket(account, serviceList, changeCounter):
             print("agent cannot change more than 20 in a single session")
             return 0
     #checks the current date and adds the trasaction to summary file
-    addToTransactions("CHG " + currentNumber + " " + ticketsChanged + " " + newNumber + " **** " + "0")
+    addToTransactions("CHG " + currentNumber + " " + str(ticketsChanged) + " " + newNumber + " **** " + "0")
     return (ticketsChanged) + changeCounter
 
 def main():
