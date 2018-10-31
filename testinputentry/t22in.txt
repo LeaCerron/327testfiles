@@ -2,8 +2,5 @@ login
 agent
 sellticket
 10000
-1000
-sellticket
-10000
-1
+yes
 logout
