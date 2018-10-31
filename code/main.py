@@ -3,7 +3,6 @@
 #will take the valid services file as input
 #will output a transaction summary file
 import sys
-from datetime import datetime
 
 serviceFile = sys.argv[1]
 summaryFile = sys.argv[2]
@@ -29,18 +28,22 @@ def createService(account, serviceList):
         print("invalid service number")
         return
     #prompts for and validates the service date
-    date = input("Enter the date of the service(YYYYMMDD): \n")
-    if (len(date) > 8):
+    try:
+        date = int(input("Enter the date of the service(YYYYMMDD):\n"))
+    except:
         print("invalid date")
         return
-    elif (int(date[0:4]) > 2999 or int(date[0:4]) < 1980):
-        print("invalid date")
+    if (len(str(date)) > 8):
+        print("invalid date\n")
         return
-    elif (int(date[4:6]) > 12 or int(date[4:6]) < 1):
-        print("invalid date")
+    elif ((date // 10000) > 2999 or (date // 10000) < 1980):
+        print("invalid date\n")
         return
-    elif (int(date[-2:]) > 31 or int(date[-2:]) < 1):
-        print("invalid date")
+    elif ((date % 10000 // 100) > 12 or (date % 10000 // 100) < 1):
+        print("invalid date\n")
+        return
+    elif ((date % 100) > 31 or (date % 100) < 1):
+        print("invalid date\n")
         return
     #prompts for and validates the service name
     name = input("Enter a name for the service (3-39 characters, cannot begin/end with a space):\n")
@@ -50,7 +53,7 @@ def createService(account, serviceList):
     elif (name[:1] == " " or name[-1:] == " "):
         print("invalid service name")
         return
-    addToTransactions("CRE " + newNumber + " 0 00000 " + name + " " + date)
+    addToTransactions("CRE " + newNumber + " 0 00000 " + name + " " + str(date))
     return
 
 #deletes a pre-existing valid service and prevents any further ticket sales to that service
@@ -60,22 +63,18 @@ def deleteService(account, serviceList):
         print("agent cannot delete services")
         return
     #checks that the service number is valid
-    print("Enter the service number to be deleted:\n")
-    service = input()
+    service = input("Enter the service number to be deleted:\n")
     if not(service in serviceList):
         print("invalid service number")
         return
-    elif (newNumber[:1] == "0" | len(newNumber) != 5):
-        print("invalid service number")
-        return
     #prompts the user for a valid service name
-    print("Enter the name of the service to be deleted:\n")
+    print("Enter the name of the service to be deleted:")
     name = input()
     if (len(name) > 39 | len(name) < 3):
         print("invalid service name")
         return
-    elif (name[:1] == " " | name[-1:] == " "):
-        print("invalid service name")
+    elif (name[0] == " ") or (name[-1] == " "):
+        print("invalid service name\n")
         return
     
     addToTransactions("DEL " + service + " 0 00000 " + name + " " + "0")
@@ -86,25 +85,29 @@ def cancelTicket(account, serviceList, cancelCounter, cancelDict):
     serviceNumber = input("Enter a service number: \n")
     if (serviceNumber not in serviceList):
         print("service number not in the valid services list")
-        return 0
-    tickets = int(input("Enter the number ot tickets to delete: \n")) #enter number of tickets 
+        return cancelCounter
+    try:
+        tickets = int(input("Enter the number of tickets to cancel: /n")) #enter number of tickets
+    except:
+        print("invalid number of tickets")
+        return cancelCounter
+
     #check number of tickets,must be between 1 and 1000
     if (tickets < 1) | (tickets > 1000):
         print("number of tickets should be between 1 and 1000")
-        return 0
+        return cancelCounter
     if (account == 'agent'):
         #agent cannot cancel more than 10 tickets per service per session
         if (tickets + cancelDict[serviceNumber] > 10):
             print("agents are only allowed to delete 10 tickets per service per session")
-            return 0
-        if (tickets + cancelcount > 20):
+            return cancelCounter
+        if (tickets + cancelCounter > 20):
             #agents cannot cancel more than 20 tickers in one session
             print("agents are only allowed to cancel 20 tickets per session")
-            return 0
-
+            return cancelCounter
     cancelCounter += tickets
-
-    addToTransactions("DEL " + serviceNumber + " " + tickets + " 00000 **** " + "0")
+    cancelDict[serviceNumber] = tickets
+    addToTransactions("CAN " + serviceNumber + " " + str(tickets) + " 00000 **** " + "0")
     return cancelCounter
 
 
@@ -114,8 +117,12 @@ def sellTicket(account, serviceList):
         print("Invalid service number")
         return
     #enter number of tickets
-    tickets = input("Enter the number of tickets to sell: \n") 
-    if ((int(tickets) < 1) | (int(tickets) > 1000)):
+    tickets = input("Enter the number of tickets to sell: /n") 
+    try:
+        if ((int(tickets) < 1) | (int(tickets) > 1000)):
+            print("Invalid number of tickets")
+            return
+    except:
         print("Invalid number of tickets")
         return
     addToTransactions("SEL " + serviceNumber + " " + tickets + " 00000 **** " + "0")
@@ -125,28 +132,31 @@ def changeTicket(account, serviceList, changeCounter):
     #if the agent has already changed more than 20 tickets, leave immediately
     if (account == "agent") and (changeCounter > 20):
         print("agent cannot change more than 20 in a single session")
-        return 0
+        return changeCounter
     #gets the current service number    
     currentNumber = input("Enter the current service number: \n")
     if not(currentNumber in serviceList):
         print("invalid service number")
-        return 0
+        return changeCounter
     #gets the new destination service number
     newNumber = input("Enter the new service number:\n")
     if not(newNumber in serviceList):
         print("invalid service number")
-        return 0
-    #gets the number of tickets bein changed
-    ticketsChanged = input("Enter the number of tickets you are changing: \n")
+        return changeCounter
+    #gets the number of tickets being changed
+    try:
+        ticketsChanged = int(input("Enter the number of tickets you are changing: \n"))
+    except:
+        print("Invalid number")
+        return changeCounter
     #if agent, checks for the number of tickets changed
     if (account == "agent"):
-        if ((int(ticketsChanged) + changeCounter) > 20):
+        if (ticketsChanged + changeCounter > 20):
             print("agent cannot change more than 20 in a single session")
-            return 0
+            return changeCounter
     #checks the current date and adds the trasaction to summary file
-    addToTransactions("CHG " + currentNumber + " " + ticketsChanged + " " +
-                     newNumber + " **** " + "0")
-    return int(ticketsChanged) + changeCounter
+    addToTransactions("CHG " + currentNumber + " " + str(ticketsChanged) + " " + newNumber + " **** " + "0")
+    return (ticketsChanged) + changeCounter
 
 def main():
     entered = input("Begin session: \n")
@@ -178,7 +188,6 @@ def main():
     for i in serviceList:
         cancelDict[i] = 0
 
-
     while True:
         entered = input("Enter command: \n")
 
@@ -187,7 +196,8 @@ def main():
             createService(account, serviceList)
         elif (entered == "deleteservice"):
             deleted = deleteService(account, serviceList)
-            serviceList.remove(deleted) #delete service from active
+            if (deleted is not None):
+                serviceList.remove(deleted) #delete service from active
         elif (entered == "sellticket"):
             sellTicket(account, serviceList)
         elif (entered == "cancelticket"):
@@ -202,4 +212,3 @@ def main():
             print("Invalid command, try again")
 
 main() #run the program
-
