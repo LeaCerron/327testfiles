@@ -110,7 +110,11 @@ def sellTicket(account, serviceList):
         return
     #enter number of tickets
     tickets = input("Enter the number ot tickets to sell: ") 
-    if ((int(tickets) < 1) | (int(tickets) > 1000)):
+    try:
+        if ((int(tickets) < 1) | (int(tickets) > 1000)):
+            print("Invalid number of tickets")
+            return
+    except:
         print("Invalid number of tickets")
         return
     addToTransactions("SEL " + serviceNumber + " " + tickets + " 00000 **** " + "0")
