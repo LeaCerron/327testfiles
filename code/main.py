@@ -54,7 +54,7 @@ def createService(account, serviceList):
     elif (name[:1] == " " or name[-1:] == " "):
         print("invalid service name")
         return
-    elif (not name.isalnum()):
+    elif (not name.replace(' ','').isalnum()):
         print("invalid service name")
         return
     addToTransactions("CRE " + newNumber + " 0 00000 " + name + " " + str(date))
