@@ -13,9 +13,9 @@ log="log$(date +_%Y_%m_%T)" #uses date so will not be overridden when running te
 for (( i = 1; i <= $num; i++ )); do #using value of i to use files needed for each test
     echo "running test $i"
     #running code on test inputs, saving output file and terminal output
-    python code/main.py serviceList.txt actualoutput/${i}.txt < testinputentry/t${i}in.txt > actualoutput/${i}.log
-done
-for (( i = 1; i <= $num; i++ )); do
+    python3 code/main.py serviceList.txt actualoutput/${i}.txt < testinputentry/t${i}in.txt > actualoutput/${i}.log 2> temp
+    resultpython=$?
+
     if [[ $resultpython > 0 ]]; then
         echo "test $i failed" >> logfiles/$log
         cat temp >> logfiles/$log
@@ -34,6 +34,7 @@ for (( i = 1; i <= $num; i++ )); do
         #name of actual terminal output file
         terminal="t${i}out.log"
 
+
         #get if a difference exists or not
         diff -wc actualoutput/${i}.txt testoutput/$output > /dev/null
         resultfile=$?
@@ -47,8 +48,10 @@ for (( i = 1; i <= $num; i++ )); do
             diff -wc actualoutput/${i}.txt testoutput/$output >> logfiles/$log
             diff -wc actualoutput/${i}.log testoutputterminal/$terminal >> logfiles/$log
             echo >> logfiles/$log #make a space for readability 
+
         fi
     fi
 done
+
 #clean up temp
 rm temp
