@@ -1,0 +1,97 @@
+test 14 failed
+*** actualoutput/14.log	2018-10-31 21:48:26.455110000 -0400
+--- testoutputterminal/t14out.log	2018-10-31 21:48:20.801559100 -0400
+***************
+*** 4,6 ****
+--- 4,7 ----
+  Enter the service number to be deleted:
+  Enter the name of the service to be deleted:
+  Enter command: 
++ 
+
+test 16 failed
+*** actualoutput/16.txt	2018-10-31 21:48:26.868595300 -0400
+--- testoutput/EOS.txt	2018-10-31 19:57:42.571872900 -0400
+***************
+*** 1,2 ****
+- DEL 10000 0 00000 exampleName 0
+  EOS 00000 0 00000 **** 0
+--- 1 ----
+
+test 36 failed
+*** actualoutput/36.txt	2018-10-31 21:48:30.183574000 -0400
+--- testoutput/t36out.txt	2018-10-31 19:57:42.576859700 -0400
+***************
+*** 1 ****
+--- 1,2 ----
++ CHG 10000 21 10001 **** 0
+  EOS 00000 0 00000 **** 0
+
+test 38 failed
+*** actualoutput/38.log	2018-10-31 21:48:30.606237800 -0400
+--- testoutputterminal/t38out.log	2018-10-31 19:57:42.589826400 -0400
+***************
+*** 1,7 ****
+  Begin session: 
+  Enter the login type: 
+  Enter command: 
+! Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 1,7 ----
+  Begin session:
+  Enter the login type:
+  Enter command:
+! agent cannot create services
+  Enter command: 
+  Invalid command, try again
+  Enter command:
+
+test 39 failed
+*** actualoutput/39.txt	2018-10-31 21:48:30.887395400 -0400
+--- testoutput/t39out.txt	2018-10-31 19:57:42.576859700 -0400
+***************
+*** 1 ****
+--- 1,2 ----
++ CRE 10000 0 00000 new service name 0
+  EOS 00000 0 00000 **** 0
+*** actualoutput/39.log	2018-10-31 21:48:30.896324100 -0400
+--- testoutputterminal/t39out.log	2018-10-31 19:57:42.589826400 -0400
+***************
+*** 4,8 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  Enter a name for the service (3-39 characters, cannot begin/end with a space):
+- invalid service name
+  Enter command: 
+--- 4,7 ----
+
+test 40 failed
+*** actualoutput/40.log	2018-10-31 21:48:31.171334400 -0400
+--- testoutputterminal/t40out.log	2018-10-31 19:57:42.590822600 -0400
+***************
+*** 4,13 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  Enter a name for the service (3-39 characters, cannot begin/end with a space):
+- invalid service name
+  Enter command: 
+  Enter a service number: 
+  Invalid service number
+! Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 4,14 ----
+  Enter the new service number:
+  Enter the date of the service(YYYYMMDD):
+  Enter a name for the service (3-39 characters, cannot begin/end with a space):
+  Enter command:
+  Enter a service number: 
+  Invalid service number
+! Enter a command: 
+  Invalid command, try again
+! Enter a command: 
+! Invalid command, try again
+! Enter a command: 
+
