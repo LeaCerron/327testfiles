@@ -1,5 +1,5 @@
 login
-agent
+planner
 changeticket
 10000
 10001

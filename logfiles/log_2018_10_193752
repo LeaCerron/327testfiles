@@ -1,0 +1,125 @@
+test 39 failed
+*** actualoutput/39.txt	2018-10-31 19:37:58.187488300 -0400
+--- testoutput/t39out.txt	2018-10-29 17:49:19.678754500 -0400
+***************
+*** 1 ****
+--- 1,2 ----
++ CRE 10000 0 00000 new service name 0
+  EOS 00000 0 00000 **** 0
+*** actualoutput/39.log	2018-10-31 19:37:58.193359700 -0400
+--- testoutputterminal/t39out.log	2018-10-31 18:09:38.049091800 -0400
+***************
+*** 4,8 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  Enter a name for the service (3-39 characters, cannot begin/end with a space):
+- invalid service name
+  Enter command: 
+--- 4,7 ----
+
+test 40 failed
+*** actualoutput/40.log	2018-10-31 19:37:58.324884100 -0400
+--- testoutputterminal/t40out.log	2018-10-31 18:09:36.818226100 -0400
+***************
+*** 4,13 ****
+  Enter the new service number: 
+  Enter the date of the service(YYYYMMDD):
+  Enter a name for the service (3-39 characters, cannot begin/end with a space):
+- invalid service name
+  Enter command: 
+  Enter a service number: 
+  Invalid service number
+! Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 4,14 ----
+  Enter the new service number:
+  Enter the date of the service(YYYYMMDD):
+  Enter a name for the service (3-39 characters, cannot begin/end with a space):
+  Enter command:
+  Enter a service number: 
+  Invalid service number
+! Enter a command: 
+  Invalid command, try again
+! Enter a command: 
+! Invalid command, try again
+! Enter a command: 
+
+test 41 failed
+*** actualoutput/41.log	2018-10-31 19:37:58.410804400 -0400
+--- testoutputterminal/t41out.log	2018-10-31 18:09:35.919308000 -0400
+***************
+*** 1,9 ****
+  Begin session: 
+  Enter the login type: 
+  Enter command: 
+! Invalid command, try again
+! Enter command: 
+! Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
+--- 1,9 ----
+  Begin session:
+  Enter the login type:
+  Enter command:
+! Enter the new service number:
+! invalid service number
+  Enter command:
+  Invalid command, try again
+  Enter command: 
++ 
+
+test 42 failed
+*** actualoutput/42.log	2018-10-31 19:37:58.575490600 -0400
+--- testoutputterminal/t42out.log	2018-10-31 18:09:35.135685000 -0400
+***************
+*** 7,10 ****
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 7,10 ----
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command
+
+test 43 failed
+*** actualoutput/43.log	2018-10-31 19:37:58.720466600 -0400
+--- testoutputterminal/t43out.log	2018-10-31 18:09:34.557315000 -0400
+***************
+*** 8,10 ****
+--- 8,11 ----
+  Enter command: 
+  Invalid command, try again
+  Enter command: 
++ 
+
+test 44 failed
+*** actualoutput/44.log	2018-10-31 19:37:58.879491900 -0400
+--- testoutputterminal/t44out.log	2018-10-31 18:09:33.601480600 -0400
+***************
+*** 7,10 ****
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command: 
+--- 7,10 ----
+  Invalid command, try again
+  Enter command: 
+  Invalid command, try again
+! Enter command
+
+test 51 failed
+*** actualoutput/51.log	2018-10-31 19:37:59.904334800 -0400
+--- testoutputterminal/t51out.log	2018-10-31 18:09:26.831853000 -0400
+***************
+*** 5,9 ****
+  Enter the date of the service(YYYYMMDD):
+  invalid date
+  Enter command: 
+- Invalid command, try again
+- Enter command: 
+--- 5,7 ----
+

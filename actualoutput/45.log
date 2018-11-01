@@ -2,6 +2,8 @@ Begin session:
 Enter the login type: 
 Enter command: 
 Enter the new service number: 
-Enter the date of the service(YYYYMMDD): 
-Enter a name for the service (3-39 characters, cannot begin/end with a space):
+Enter the date of the service(YYYYMMDD):
+invalid date
+Enter command: 
+Invalid command, try again
 Enter command: 
