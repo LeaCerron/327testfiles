@@ -3,7 +3,6 @@
 #will take the valid services file as input
 #will output a transaction summary file
 import sys
-import re
 
 serviceFile = sys.argv[1]
 summaryFile = sys.argv[2]
