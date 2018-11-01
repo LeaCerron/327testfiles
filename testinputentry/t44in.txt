@@ -2,4 +2,6 @@ login
 planner
 createservice
 10000	
+20000101
+new service name
 logout
