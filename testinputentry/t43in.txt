@@ -1,5 +1,8 @@
 login
 planner
 createservice
+01000
 09999
+20000101
+new service name
 logout
