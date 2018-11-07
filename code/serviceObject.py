@@ -24,5 +24,7 @@ def main():
     print(services[0].ticketsSold)
     print(services[0].serviceName)
     print(services[0].serviceDate)
+    #to remove an object use 
+    #del services[#]
 
 main()
