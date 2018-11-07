@@ -3,7 +3,6 @@
 #will take the valid services file as input
 #will output a transaction summary file
 import sys
-import re
 
 serviceFile = sys.argv[1]
 summaryFile = sys.argv[2]
@@ -54,7 +53,7 @@ def createService(account, serviceList):
     elif (name[:1] == " " or name[-1:] == " "):
         print("invalid service name")
         return
-    elif (not name.isalnum()):
+    elif (not name.replace(' ','').isalnum()):
         print("invalid service name")
         return
     addToTransactions("CRE " + newNumber + " 0 00000 " + name + " " + str(date))
@@ -72,8 +71,7 @@ def deleteService(account, serviceList):
         print("invalid service number")
         return
     #prompts the user for a valid service name
-    print("Enter the name of the service to be deleted:")
-    name = input()
+    name = input("Enter the name of the service to be deleted:\n")
     if (len(name) > 39 | len(name) < 3):
         print("invalid service name")
         return
