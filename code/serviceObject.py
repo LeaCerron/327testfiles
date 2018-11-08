@@ -8,14 +8,18 @@ class Service:
         self.serviceDate = serviceDate
 
     def sellTickets(self, tickets):
+        if(tickets <= -1):
+            raise Exception("selling a negaive number of tickets")
         self.ticketsSold += tickets
+        if(self.ticketsSold > self.serviceCapacity):
+            raise Exception("service over capacity")
 
     def cancelTickets(self, tickets):
         self.ticketsSold -= tickets
 
 def changeTickets(service1, service2, tickets):
-    service1.cancelTickets(tickets)
-    service2.sellTickes(tickets)
+    service1.ticketsSold += tickets
+    service2.ticketsSold -= tickets
 
 def main():
     services.append(Service(10000, 0,'kingston', 12122020))
