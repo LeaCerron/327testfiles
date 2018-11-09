@@ -128,30 +128,36 @@ def main():
             serviceList = deleteService(serviceList, transactions[i][1], transactions[i][4])
         #sell tickets
         elif (code == "SEL"):
+            x = 0
             for y in serviceList:
                 if (number == y.serviceNumber):
-                    y.sellTickets(int(i[2]))
+                    y.sellTickets(i[2])
                 else:
                     #raise Exception("Service " + number + " doesn't exist")
         #cancel tickets
         elif (code == "CAN"):
+            x = 0
             for y in serviceList:
                 if (number == y.serviceNumber):
-                    y.cancelTickets(int(i[2]))
+                    y.cancelTickets(i[2])
+                    X++
                     #break
-                #raise Exception("Service " + number + " doesn't exist")
+            if(x != 1)
+                raise Exception("Service " + number + " doesn't exist")
         #change tickets
         elif (code == "CHG"):
+             n = 0
              for y in serviceList:
                 if (number == y.serviceNumber):
                     number = i[3]
                     for x in serviceList:
                         if (number == x.serviceNumber):
-                            changeTickets(y,x,int(i[2]))
-                        #else:
-                            #raise Exception("Service " + number + " doesn't exist")
-                #else:
-                    #raise Exception("Service " + number + " doesn't exist")
+                            changeTickets(y,x,i[2])
+                            x++
+                    if(n != 1)
+                         raise Exception("Service " + number + " doesn't exist")
+              if(n != 1)
+                  raise Exception("Service " + number + " doesn't exist")
             
     writeNewCS(serviceList)
     writeNewValid(serviceList)
