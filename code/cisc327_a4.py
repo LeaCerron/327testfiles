@@ -118,11 +118,6 @@ def main():
     for i in transactions:
         code = i[0]
         number = i[1]
-        for y in serviceList:
-            if (number == y.serviceNumber):
-                service1 = y
-            else:
-                raise Exception("Service " + number + " doesn't exist")
         #exits loop when it reaches the end of the transactions
         if (code == EOS):
             break
@@ -134,19 +129,30 @@ def main():
             serviceList = deleteService(serviceList, transactions[i][1], transactions[i][4])
         #sell tickets
         elif (code == SEL):
-            serviceList[service1].sellTickets(transactions[i][2])
+            for y in serviceList:
+                if (number == y.serviceNumber):
+                    y.sellTickets(i[2])
+                else:
+                    raise Exception("Service " + number + " doesn't exist")
         #cancel tickets
         elif (code == CAN):
-            serviceList[service1].cancelTickets(transactions[i][2])
+             for y in serviceList:
+                if (number == y.serviceNumber):
+                    y.cancelTickets(i[2])
+                else:
+                    raise Exception("Service " + number + " doesn't exist")
         #change tickets
         elif (code == CHG):
-            number2 = transactions[i][3]
-            for x in serviceList:
-                if (number2 == serviceList[x][0]):
-                    service2 = x
+             for y in serviceList:
+                if (number == y.serviceNumber):
+                    number = i[3]
+                    for x in serviceList:
+                        if (number == x.serviceNumber):
+                            changeTickets(y,x,i[2])
+                        else:
+                            raise Exception("Service " + number + " doesn't exist")
                 else:
-                    raise Exception("Service " + number2 + " doesn't exist")
-            changeTickets(serviceList[service1], serviceList[service2], transactions[i][2])
+                    raise Exception("Service " + number + " doesn't exist")
             
     writeNewCS(serviceList)
     writeNewValid(serviceList)
