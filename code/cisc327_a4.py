@@ -31,6 +31,32 @@ def writeNewValid (serviceList):
     for i in serviceList:
         validServices.write(serviceList[i].serviceNumber)
     validServices.close()
+    
+def deleteService (servicesList, deleteNumber, deleteName):
+    listIndex = 0
+    for i in servicesList:
+        if (i.serviceNumber == deleteNumber) and (i.serviceName == deleteName) and (i.ticketsSold == 0):
+            del servicesList[listIndex]
+            return servicesList
+        #if (i == deleteNumber):
+            #del servicesList[listIndex]
+        else:
+            listIndex += 1
+    print ("no matching service number")
+    return servicesList
+
+def createService (servicesList, serviceNumber, serviceName, serviceDate):
+    #needs class to make
+    newService = Service(serviceNumber, 0, serviceName, serviceDate)
+    for i in range (0, len(servicesList)):
+        if (serviceNumber < servicesList[i].serviceNumber):
+            servicesList.insert(i, newService)
+            return servicesList
+        #if (serviceNumber < servicesList[i]):
+            #servicesList.insert(i, serviceNumber)
+    servicesList.insert(i+1, newService)
+    return servicesList
+
 #central loop   
 def main():
     oldServices = readCentralServices(oldCSFile)
@@ -54,10 +80,10 @@ def main():
             break
         #create tickets
         elif (code = CRE):
-            createService(serviceList, transactions[i])
+            serviceList = createService(serviceList, transactions[i][0], transactions[i][4], transactions[i][5])
         #delete tickets
         elif (code = DEL):
-            deleteService(serviceList, transactions[i][1], transactions[i][4])
+            serviceList = deleteService(serviceList, transactions[i][1], transactions[i][4])
         #sell tickets
         elif (code = SEL):
             serviceList[service1].sellTickets(transactions[i][2])
