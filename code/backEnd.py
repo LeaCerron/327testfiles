@@ -13,13 +13,13 @@ validServiceFile = sys.argv[4]
 class Service:
     def __init__(self, number, tickets, name, date):
         self.serviceNumber = number
-        self.serviceCapacity = 30
+        self.serviceCapacity = 30 #since that is default
         self.ticketsSold = tickets
         self.serviceName = name
         self.serviceDate = date
         
     #sell tickets function --> adds the number to tickets sold to ticketSold attribute of object
-    #throws fatal error if tiketsSold becomes negative or goes above capacity
+    #throws fatal error if ticketsSold becomes negative or goes above capacity
     #check validity of tickets value and throws an exception if invalid (will always be valid)
     def sellTickets(self, tickets):
         if(tickets > 1000 or tickets < 1):
@@ -30,7 +30,7 @@ class Service:
         if(self.ticketsSold < 0):
             raise Exception("Number of tickets sold is negative")
     
-    #sell tickets function --> removes the number to tickets sold from ticketSold attribute of object
+    #cancel tickets function --> removes the number to tickets sold from ticketSold attribute of object
     #throws fatal error if ticketsSold becomes negative or goes above capacity
     #check validity of tickets value and throws an exception if invalid (will always be valid)
     def cancelTickets(self, tickets):
@@ -47,51 +47,51 @@ def changeTickets(service1, service2, tickets):
     service1.cancelTickets(tickets)
     service2.sellTickets(tickets)
 
-#contains list of serviceNumber, serviceCapacity, ticketsSold, serviceName, serviceDate
+#writes serviceNumber, serviceCapacity, ticketsSold, serviceName, serviceDate to new central service file
 def writeNewCS (serviceList):
     centralServices = open(newCentralFile, "w")
     for i in serviceList:
         centralServices.write(str(i.serviceNumber) +" "+ str(i.serviceCapacity) +" "+ str(i.ticketsSold) +" "+ i.serviceName +" "+ str(i.serviceDate) + "\n")
     centralServices.close()
     
-#contains list of all valid service Numbers
+#writes new valid service file
 def writeNewValid (serviceList):
     validServices = open(validServiceFile, "w")
     for i in serviceList:
         validServices.write(str(i.serviceNumber) + "\n")
-    validServices.write("00000")
+    validServices.write("00000") #end of line characters
     validServices.close()
     
+#delete service from serviceList when valid
 def deleteService (servicesList, deleteNumber, deleteName):
     listIndex = 0
     for i in servicesList:
         if (i.serviceNumber == deleteNumber) and (i.serviceName == deleteName) and (i.ticketsSold == 0):
             del servicesList[listIndex]
             return servicesList
-        #if (i == deleteNumber):
-            #del servicesList[listIndex]
         else:
             listIndex += 1
     print ("no matching service number")
     return servicesList
 
+#creates service and add to list if valid
 def createService (servicesList, serviceNumber, serviceName, serviceDate):
-    #needs class to make
+    #check if new number, return without doing anything if not new
+    for i in servicesList:
+        if i[0] == serviceNumber:
+            print("service number already exists")
+            return servicesList
     newService = Service(serviceNumber, 0, serviceName, serviceDate)
+    #insert service to correct place on list
     for i in range (0, len(servicesList)):
         if (serviceNumber < servicesList[i].serviceNumber):
             servicesList.insert(i, newService)
             return servicesList
-        #if (serviceNumber < servicesList[i]):
-            #servicesList.insert(i, serviceNumber)
     servicesList.insert(i+1, newService)
     return servicesList
 
 #central loop   
 def main():
-    #oldServices = readCentralServices(oldCSFile)
-    # transactions = readTransactionFile(mergedTransactionFile)
-    
     #adds all old services to the list of services
     serviceList = []
     centralFile = open(oldCentralFile, "r")
@@ -104,14 +104,13 @@ def main():
             raise Exception("Invalid Capacity")
     centralFile.close()
     
-    #for x in oldServices:
-    #    serviceList.append(Service(oldServices[x][0],oldServices[x][2],oldServices[x][3],oldServices[x][4])
-    
+    #make array of each transaction and put them into an array
     transactions = []
     transactionFile = open(mergedTransactionFile, "r")
-    line = transactionFile.readline().rstrip() #get rid of newline
+    #loop through each line in file
     for line in transactionFile:
-        lineElements = line.split()
+        lineElements = line.split() #separate elements of transaction into array
+        #convert the numeric elements to int
         lineElements[1] = int(lineElements[1])
         lineElements[2] = int(lineElements[2])
         lineElements[3] = int(lineElements[3])
@@ -140,8 +139,6 @@ def main():
                     x += 1
             if(x != 1):
                 raise Exception("Service " + str(number) + " doesn't exist")
-                # else:
-                    #raise Exception("Service " + number + " doesn't exist")
         #cancel tickets
         elif (code == "CAN"):
             x = 0
@@ -149,7 +146,6 @@ def main():
                 if (number == y.serviceNumber):
                     y.cancelTickets(i[2])
                     x += 1
-                    #break
             if(x != 1):
                 raise Exception("Service " + str(number) + " doesn't exist")
         #change tickets
@@ -168,6 +164,7 @@ def main():
             if(n != 2):
                   raise Exception("Service " + str(number) + " doesn't exist")
             
+    #when all processed, write output files
     writeNewCS(serviceList)
     writeNewValid(serviceList)
             
