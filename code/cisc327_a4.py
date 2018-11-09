@@ -132,14 +132,14 @@ def main():
                 if (number == y.serviceNumber):
                     y.sellTickets(i[2])
                 else:
-                    raise Exception("Service " + number + " doesn't exist")
+                    #raise Exception("Service " + number + " doesn't exist")
         #cancel tickets
         elif (code == "CAN"):
              for y in serviceList:
                 if (number == y.serviceNumber):
                     y.cancelTickets(i[2])
-                else:
-                    raise Exception("Service " + number + " doesn't exist")
+                    #break
+                #raise Exception("Service " + number + " doesn't exist")
         #change tickets
         elif (code == "CHG"):
              for y in serviceList:
@@ -149,9 +149,9 @@ def main():
                         if (number == x.serviceNumber):
                             changeTickets(y,x,i[2])
                         else:
-                            raise Exception("Service " + number + " doesn't exist")
+                            #raise Exception("Service " + number + " doesn't exist")
                 else:
-                    raise Exception("Service " + number + " doesn't exist")
+                    #raise Exception("Service " + number + " doesn't exist")
             
     writeNewCS(serviceList)
     writeNewValid(serviceList)
