@@ -7,27 +7,56 @@ import re
 
 mergedTransactionFile = sys.argv[1]
 oldCentralFile = sys.argv[2]
-#newCentralFile = sys.argv[3]
-#validServiceFile = sys.argv[4]
+newCentralFile = sys.argv[3]
+validServiceFile = sys.argv[4]
 
 class Service:
-    def __init__(self, number, capacity, tickets, name, date):
+    def __init__(self, number, tickets, name, date):
         self.serviceNumber = number
-        self.serviceCapacity = capacity
+        self.serviceCapacity = 30
         self.ticketsSold = tickets
         self.serviceName = name
         self.serviceDate = date
+        
+    #sell tickets function --> adds the number to tickets sold to ticketSold attribute of object
+    #throws fatal error if tiketsSold becomes negative or goes above capacity
+    #check validity of tickets value and throws an exception if invalid (will always be valid)
+    def sellTickets(self, tickets):
+        if(tickets > 1000 or tickets < 1):
+            raise Exception("Invalid number of tickets")
+        self.ticketsSold += tickets
+        if(self.ticketsSold > self.serviceCapacity):
+            raise Exception("Service over capacity")
+        if(self.ticketsSold < 0):
+            raise Exception("Number of tickets sold is negative")
+    
+    #sell tickets function --> removes the number to tickets sold from ticketSold attribute of object
+    #throws fatal error if ticketsSold becomes negative or goes above capacity
+    #check validity of tickets value and throws an exception if invalid (will always be valid)
+    def cancelTickets(self, tickets):
+        if(tickets > 1000 or tickets < 1):
+            raise Exception("Invalid number of tickets")
+        self.ticketsSold -= tickets
+        if(self.ticketsSold > self.serviceCapacity):
+            raise Exception("Service over capacity")
+        if(self.ticketsSold < 0):
+            raise Exception("Number of tickets sold is negative")
+
+#uses sellTicket and cancelTicket for remove tickets from one service and add the same number of tickets to another service
+def changeTickets(service1, service2, tickets):
+    service1.cancelTickets(tickets)
+    service2.sellTickets(tickets)
 
 #contains list of serviceNumber, serviceCapacity, ticketsSold, serviceName, serviceDate
 def writeNewCS (serviceList):
-    centralServices = open("newCentral.txt", "w")
+    centralServices = open(newCentralFile, "w")
     for i in serviceList:
         centralServices.write(serviceList[i].serviceNumber +" "+ serviceList[i].serviceCapacity +" "+ serviceList[i].ticketsSolds +" "+ serviceList[i].serviceName +" "+ serviceList[i].serviceDate)
     centralServices.close()
     
 #contains list of all valid service Numbers
 def writeNewValid (serviceList):
-    validServices = open("newValid.txt", "w")
+    validServices = open(validServiceFile, "w")
     for i in serviceList:
         validServices.write(serviceList[i].serviceNumber)
     validServices.close()
@@ -65,7 +94,7 @@ def main():
     #adds all old services to the list of services
     serviceList = []
     for x in oldServices:
-        serviceList.append(Service(oldServices[x][0],oldServices[x][1],oldServices[x][2],oldServices[x][3],oldServices[x][4])
+        serviceList.append(Service(oldServices[x][0],oldServices[x][2],oldServices[x][3],oldServices[x][4])
     
     for i in transactions:
         code = transactions[i][0]
