@@ -109,10 +109,9 @@ def main():
     transactions = []
     transactionFile = open(mergedTransactionFile, "r")
     line = transactionFile.readline().rstrip() #get rid of newline
-    while line != "EOS 00000 0 00000 **** 0":
-        tempList = line.split()
-        transactions.append(tempList)
-        line = transactionFile.readline().rstrip()
+    for line in transactionFile:
+        lineElements = line.split()
+        transactions.append(lineElements)
     transactionFile.close()
     
     for i in transactions:
