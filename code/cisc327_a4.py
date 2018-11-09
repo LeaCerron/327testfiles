@@ -130,14 +130,14 @@ def main():
         elif (code == "SEL"):
             for y in serviceList:
                 if (number == y.serviceNumber):
-                    y.sellTickets(i[2])
-                # else:
+                    y.sellTickets(int(i[2]))
+                else:
                     #raise Exception("Service " + number + " doesn't exist")
         #cancel tickets
         elif (code == "CAN"):
             for y in serviceList:
                 if (number == y.serviceNumber):
-                    y.cancelTickets(i[2])
+                    y.cancelTickets(int(i[2]))
                     #break
                 #raise Exception("Service " + number + " doesn't exist")
         #change tickets
@@ -147,10 +147,10 @@ def main():
                     number = i[3]
                     for x in serviceList:
                         if (number == x.serviceNumber):
-                            changeTickets(y,x,i[2])
-                        # else:
+                             changeTickets(y,x,int(i[2]))
+                        #else:
                             #raise Exception("Service " + number + " doesn't exist")
-                # else:
+                #else:
                     #raise Exception("Service " + number + " doesn't exist")
             
     writeNewCS(serviceList)
