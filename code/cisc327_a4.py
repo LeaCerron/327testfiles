@@ -51,14 +51,14 @@ def changeTickets(service1, service2, tickets):
 def writeNewCS (serviceList):
     centralServices = open(newCentralFile, "w")
     for i in serviceList:
-        centralServices.write(i.serviceNumber +" "+ i.serviceCapacity +" "+ i.ticketsSolds +" "+ i.serviceName +" "+ i.serviceDate)
+        centralServices.write(str(i.serviceNumber) +" "+ str(i.serviceCapacity) +" "+ str(i.ticketsSold) +" "+ i.serviceName +" "+ str(i.serviceDate))
     centralServices.close()
     
 #contains list of all valid service Numbers
 def writeNewValid (serviceList):
     validServices = open(validServiceFile, "w")
     for i in serviceList:
-        validServices.write(i.serviceNumber)
+        validServices.write(str(i.serviceNumber))
     validServices.close()
     
 def deleteService (servicesList, deleteNumber, deleteName):
@@ -111,12 +111,16 @@ def main():
     line = transactionFile.readline().rstrip() #get rid of newline
     for line in transactionFile:
         lineElements = line.split()
+        lineElements[1] = int(lineElements[1])
+        lineElements[2] = int(lineElements[2])
+        lineElements[3] = int(lineElements[3])
+        lineElements[5] = int(lineElements[5])
         transactions.append(lineElements)
     transactionFile.close()
     
     for i in transactions:
         code = i[0]
-        number = i[1]
+        number = int(i[1])
         #exits loop when it reaches the end of the transactions
         if (code == "EOS"):
             break
@@ -132,6 +136,9 @@ def main():
             for y in serviceList:
                 if (number == y.serviceNumber):
                     y.sellTickets(int(i[2]))
+                    x += 1
+            if(x != 1):
+                raise Exception("Service " + str(number) + " doesn't exist")
                 # else:
                     #raise Exception("Service " + number + " doesn't exist")
         #cancel tickets
@@ -140,24 +147,25 @@ def main():
             for y in serviceList:
                 if (number == y.serviceNumber):
                     y.cancelTickets(i[2])
-                    X++
+                    x += 1
                     #break
-            if(x != 1)
-                raise Exception("Service " + number + " doesn't exist")
+            if(x != 1):
+                raise Exception("Service " + str(number) + " doesn't exist")
         #change tickets
         elif (code == "CHG"):
-             n = 0
-             for y in serviceList:
+            n = 0
+            for y in serviceList:
                 if (number == y.serviceNumber):
                     number = i[3]
+                    n += 1
                     for x in serviceList:
                         if (number == x.serviceNumber):
-                            changeTickets(y,x,i[2])
-                            x++
-                    if(n != 1)
-                         raise Exception("Service " + number + " doesn't exist")
-            if(n != 1)
-                  raise Exception("Service " + number + " doesn't exist")
+                            changeTickets(x,y,i[2])
+                            n += 1
+                            break
+                break
+            if(n != 2):
+                  raise Exception("Service " + str(number) + " doesn't exist")
             
     writeNewCS(serviceList)
     writeNewValid(serviceList)
