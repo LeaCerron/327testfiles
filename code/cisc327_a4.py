@@ -89,7 +89,7 @@ def createService (servicesList, serviceNumber, serviceName, serviceDate):
 #central loop   
 def main():
     #oldServices = readCentralServices(oldCSFile)
-    transactions = readTransactionFile(mergedTransactionFile)
+    # transactions = readTransactionFile(mergedTransactionFile)
     
     #adds all old services to the list of services
     serviceList = []
@@ -109,42 +109,43 @@ def main():
     transactions = []
     transactionFile = open(mergedTransactionFile, "r")
     line = transactionFile.readline().rstrip() #get rid of newline
-    while line != "00000":
-        transactions.append(line)
+    while line != "EOS 00000 0 00000 **** 0":
+        tempList = line.split()
+        transactions.append(tempList)
         line = transactionFile.readline().rstrip()
-    transactions.close()
+    transactionFile.close()
     
     for i in transactions:
-        code = transactions[i][0]
-        number = transactions[i][1]
+        code = i[0]
+        number = i[1]
         for y in serviceList:
-            if (number = serviceList[y][0]):
+            if (number == y.serviceNumber):
                 service1 = y
             else:
                 raise Exception("Service " + number + " doesn't exist")
         #exits loop when it reaches the end of the transactions
-        if (code = EOS):
+        if (code == EOS):
             break
         #create tickets
-        elif (code = CRE):
+        elif (code == CRE):
             serviceList = createService(serviceList, transactions[i][0], transactions[i][4], transactions[i][5])
         #delete tickets
-        elif (code = DEL):
+        elif (code == DEL):
             serviceList = deleteService(serviceList, transactions[i][1], transactions[i][4])
         #sell tickets
-        elif (code = SEL):
+        elif (code == SEL):
             serviceList[service1].sellTickets(transactions[i][2])
         #cancel tickets
-        elif (code = CAN):
+        elif (code == CAN):
             serviceList[service1].cancelTickets(transactions[i][2])
         #change tickets
-        elif (code = CHG):
+        elif (code == CHG):
             number2 = transactions[i][3]
             for x in serviceList:
-            if (number2 = serviceList[x][0]):
-                service2 = x
-            else:
-                raise Exception("Service " + number2 + " doesn't exist")
+                if (number2 == serviceList[x][0]):
+                    service2 = x
+                else:
+                    raise Exception("Service " + number2 + " doesn't exist")
             changeTickets(serviceList[service1], serviceList[service2], transactions[i][2])
             
     writeNewCS(serviceList)
