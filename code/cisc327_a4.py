@@ -51,14 +51,15 @@ def changeTickets(service1, service2, tickets):
 def writeNewCS (serviceList):
     centralServices = open(newCentralFile, "w")
     for i in serviceList:
-        centralServices.write(str(i.serviceNumber) +" "+ str(i.serviceCapacity) +" "+ str(i.ticketsSold) +" "+ i.serviceName +" "+ str(i.serviceDate))
+        centralServices.write(str(i.serviceNumber) +" "+ str(i.serviceCapacity) +" "+ str(i.ticketsSold) +" "+ i.serviceName +" "+ str(i.serviceDate) + "\n")
     centralServices.close()
     
 #contains list of all valid service Numbers
 def writeNewValid (serviceList):
     validServices = open(validServiceFile, "w")
     for i in serviceList:
-        validServices.write(str(i.serviceNumber))
+        validServices.write(str(i.serviceNumber) + "\n")
+    validServices.write("00000")
     validServices.close()
     
 def deleteService (servicesList, deleteNumber, deleteName):
