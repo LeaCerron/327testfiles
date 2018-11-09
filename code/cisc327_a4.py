@@ -97,7 +97,7 @@ def main():
     for line in centralFile:
         lineElements = line.split()
         if int(lineElements[1]) < 1000 and int(lineElements[1]) > 0:
-            tempObject = Service(lineElements[0], lineElements[2], lineElements[3], lineElements[4])
+            tempObject = Service(int(lineElements[0]), int(lineElements[2]), lineElements[3], int(lineElements[4]))
             serviceList.append(tempObject)
         else:
             raise Exception("Invalid Capacity")
@@ -131,7 +131,7 @@ def main():
             for y in serviceList:
                 if (number == y.serviceNumber):
                     y.sellTickets(int(i[2]))
-                else:
+                # else:
                     #raise Exception("Service " + number + " doesn't exist")
         #cancel tickets
         elif (code == "CAN"):
