@@ -90,9 +90,9 @@ def createService (servicesList, serviceNumber, serviceName, serviceDate):
     servicesList.insert(i+1, newService)
     return servicesList
 
-#central loop   
-def main():
-    #adds all old services to the list of services
+
+#adds all old services to the list of services
+def readOldCentralFile():
     serviceList = []
     centralFile = open(oldCentralFile, "r")
     for line in centralFile:
@@ -103,8 +103,10 @@ def main():
         else:
             raise Exception("Invalid Capacity")
     centralFile.close()
-    
-    #make array of each transaction and put them into an array
+    return serviceList
+
+#make array of each transaction and put them into an array
+def readMergedFile():
     transactions = []
     transactionFile = open(mergedTransactionFile, "r")
     #loop through each line in file
@@ -117,6 +119,16 @@ def main():
         lineElements[5] = int(lineElements[5])
         transactions.append(lineElements)
     transactionFile.close()
+    return transactions
+    
+
+#central loop   
+def main():
+    #create seriveList of service objects
+    serviceList = readOldCentralFile()
+
+    #create transaction list
+    transactions = readMergedFile()
     
     for i in transactions:
         code = i[0]
