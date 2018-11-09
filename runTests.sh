@@ -13,7 +13,7 @@ log="log$(date +_%Y_%m_%T)" #uses date so will not be overridden when running te
 for (( i = 1; i <= $num; i++ )); do #using value of i to use files needed for each test
     echo "running test $i"
     #running code on test inputs, saving output file and terminal output
-    python3 code/main.py serviceList.txt actualoutput/${i}.txt < testinputentry/t${i}in.txt > actualoutput/${i}.log 2> temp
+    python3 code/frontEnd.py serviceList.txt actualoutput/${i}.txt < testinputentry/t${i}in.txt > actualoutput/${i}.log 2> temp
     resultpython=$?
 
     if [[ $resultpython > 0 ]]; then
