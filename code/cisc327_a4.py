@@ -135,7 +135,7 @@ def main():
                     #raise Exception("Service " + number + " doesn't exist")
         #cancel tickets
         elif (code == "CAN"):
-             for y in serviceList:
+            for y in serviceList:
                 if (number == y.serviceNumber):
                     y.cancelTickets(i[2])
                     #break
