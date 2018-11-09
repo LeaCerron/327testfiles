@@ -88,13 +88,31 @@ def createService (servicesList, serviceNumber, serviceName, serviceDate):
 
 #central loop   
 def main():
-    oldServices = readCentralServices(oldCSFile)
+    #oldServices = readCentralServices(oldCSFile)
     transactions = readTransactionFile(mergedTransactionFile)
     
     #adds all old services to the list of services
     serviceList = []
-    for x in oldServices:
-        serviceList.append(Service(oldServices[x][0],oldServices[x][2],oldServices[x][3],oldServices[x][4])
+    centralFile = open(oldCentralFile, "r")
+    for line in centralFile:
+        lineElements = line.split()
+        if int(lineElements[1]) < 1000 and int(lineElements[1]) > 0:
+            tempObject = Service(lineElements[0], lineElements[2], lineElements[3], lineElements[4])
+            serviceList.append(tempObject)
+        else:
+            raise Exception("Invalid Capacity")
+    centralFile.close()
+    
+    #for x in oldServices:
+    #    serviceList.append(Service(oldServices[x][0],oldServices[x][2],oldServices[x][3],oldServices[x][4])
+    
+    transactions = []
+    transactionFile = open(mergedTransactionFile, "r")
+    line = transactionFile.readline().rstrip() #get rid of newline
+    while line != "00000":
+        transactions.append(line)
+        line = transactionFile.readline().rstrip()
+    transactions.close()
     
     for i in transactions:
         code = transactions[i][0]
