@@ -119,30 +119,30 @@ def main():
         code = i[0]
         number = i[1]
         #exits loop when it reaches the end of the transactions
-        if (code == EOS):
+        if (code == "EOS"):
             break
         #create tickets
-        elif (code == CRE):
+        elif (code == "CRE"):
             serviceList = createService(serviceList, transactions[i][0], transactions[i][4], transactions[i][5])
         #delete tickets
-        elif (code == DEL):
+        elif (code == "DEL"):
             serviceList = deleteService(serviceList, transactions[i][1], transactions[i][4])
         #sell tickets
-        elif (code == SEL):
+        elif (code == "SEL"):
             for y in serviceList:
                 if (number == y.serviceNumber):
                     y.sellTickets(i[2])
                 else:
                     raise Exception("Service " + number + " doesn't exist")
         #cancel tickets
-        elif (code == CAN):
+        elif (code == "CAN"):
              for y in serviceList:
                 if (number == y.serviceNumber):
                     y.cancelTickets(i[2])
                 else:
                     raise Exception("Service " + number + " doesn't exist")
         #change tickets
-        elif (code == CHG):
+        elif (code == "CHG"):
              for y in serviceList:
                 if (number == y.serviceNumber):
                     number = i[3]
