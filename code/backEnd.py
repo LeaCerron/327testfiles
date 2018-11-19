@@ -3,7 +3,6 @@
 #will output a New Central Services File and New Valid Services File
 
 import sys
-import re
 
 mergedTransactionFile = sys.argv[1]
 oldCentralFile = sys.argv[2]
@@ -48,14 +47,14 @@ def changeTickets(service1, service2, tickets):
     service2.sellTickets(tickets)
 
 #writes serviceNumber, serviceCapacity, ticketsSold, serviceName, serviceDate to new central service file
-def writeNewCS (serviceList):
+def writeNewCS(serviceList):
     centralServices = open(newCentralFile, "w")
     for i in serviceList:
-        centralServices.write(str(i.serviceNumber) +" "+ str(i.serviceCapacity) +" "+ str(i.ticketsSold) +" "+ i.serviceName +" "+ str(i.serviceDate) + "\n")
+        centralServices.write(str(i.serviceNumber) + " " + str(i.serviceCapacity) + " " + str(i.ticketsSold) + " " + i.serviceName + " " + str(i.serviceDate) + "\n")
     centralServices.close()
     
 #writes new valid service file
-def writeNewValid (serviceList):
+def writeNewValid(serviceList):
     validServices = open(validServiceFile, "w")
     for i in serviceList:
         validServices.write(str(i.serviceNumber) + "\n")
@@ -63,7 +62,7 @@ def writeNewValid (serviceList):
     validServices.close()
     
 #delete service from serviceList when valid
-def deleteService (servicesList, deleteNumber, deleteName):
+def deleteService(servicesList, deleteNumber, deleteName):
     listIndex = 0
     for i in servicesList:
         if (i.serviceNumber == deleteNumber) and (i.serviceName == deleteName) and (i.ticketsSold == 0):
@@ -71,11 +70,11 @@ def deleteService (servicesList, deleteNumber, deleteName):
             return servicesList
         else:
             listIndex += 1
-    print ("no matching service number")
+    print("no matching service number")
     return servicesList
 
 #creates service and add to list if valid
-def createService (servicesList, serviceNumber, serviceName, serviceDate):
+def createService(servicesList, serviceNumber, serviceName, serviceDate):
     #check if new number, return without doing anything if not new
     for i in servicesList:
         if i[0] == serviceNumber:
@@ -83,11 +82,11 @@ def createService (servicesList, serviceNumber, serviceName, serviceDate):
             return servicesList
     newService = Service(serviceNumber, 0, serviceName, serviceDate)
     #insert service to correct place on list
-    for i in range (0, len(servicesList)):
+    for i in range(0, len(servicesList)):
         if (serviceNumber < servicesList[i].serviceNumber):
             servicesList.insert(i, newService)
             return servicesList
-    servicesList.insert(i+1, newService)
+    servicesList.insert(i + 1, newService)
     return servicesList
 
 
@@ -174,7 +173,7 @@ def main():
                             break
                 break
             if(n != 2):
-                  raise Exception("Service " + str(number) + " doesn't exist")
+                    raise Exception("Service " + str(number) + " doesn't exist")
             
     #when all processed, write output files
     writeNewCS(serviceList)
