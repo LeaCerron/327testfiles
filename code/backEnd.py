@@ -77,7 +77,7 @@ def deleteService(servicesList, deleteNumber, deleteName):
 def createService(servicesList, serviceNumber, serviceName, serviceDate):
     #check if new number, return without doing anything if not new
     for i in servicesList:
-        if i[0] == serviceNumber:
+        if i.serviceNumber == serviceNumber:
             print("service number already exists")
             return servicesList
     newService = Service(serviceNumber, 0, serviceName, serviceDate)
@@ -86,7 +86,7 @@ def createService(servicesList, serviceNumber, serviceName, serviceDate):
         if (serviceNumber < servicesList[i].serviceNumber):
             servicesList.insert(i, newService)
             return servicesList
-    servicesList.insert(i + 1, newService)
+    servicesList.append(newService)
     return servicesList
 
 
@@ -111,6 +111,12 @@ def readMergedFile():
     #loop through each line in file
     for line in transactionFile:
         lineElements = line.split() #separate elements of transaction into array
+
+        #if service name if string with spaces, still accepts
+        while len(lineElements) > 6:
+            lineElements[4] = lineElements[4] + " " + lineElements[5]
+            del lineElements[5]
+
         #convert the numeric elements to int
         lineElements[1] = int(lineElements[1])
         lineElements[2] = int(lineElements[2])
@@ -137,10 +143,10 @@ def main():
             break
         #create tickets
         elif (code == "CRE"):
-            serviceList = createService(serviceList, transactions[i][0], transactions[i][4], transactions[i][5])
+            serviceList = createService(serviceList, i[1], i[4], i[5])
         #delete tickets
         elif (code == "DEL"):
-            serviceList = deleteService(serviceList, transactions[i][1], transactions[i][4])
+            serviceList = deleteService(serviceList, i[1], i[4])
         #sell tickets
         elif (code == "SEL"):
             x = 0
