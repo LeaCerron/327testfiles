@@ -144,7 +144,7 @@ def main():
         number = int(i[1])
         #exits loop when it reaches the end of the transactions
         if (code == "EOS"):
-            break
+            pass
         #create tickets
         elif (code == "CRE"):
             serviceList = createService(serviceList, i[1], i[4], i[5])
