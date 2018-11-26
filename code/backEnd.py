@@ -69,8 +69,12 @@ def deleteService(servicesList, deleteNumber, deleteName):
             del servicesList[listIndex]
             return servicesList
         else:
-            listIndex += 1
-    print("no matching service number")
+            if (i.serviceNumber == deleteNumber) and (i.serviceName == deleteName):
+                print("cannot delete, tickets already sold for the service")
+                return servicesList
+            else:   
+                listIndex += 1
+    raise Exception("service number or service name does not match")
     return servicesList
 
 #creates service and add to list if valid
@@ -78,7 +82,7 @@ def createService(servicesList, serviceNumber, serviceName, serviceDate):
     #check if new number, return without doing anything if not new
     for i in servicesList:
         if i.serviceNumber == serviceNumber:
-            print("service number already exists")
+            raise Exception("service number already exists")
             return servicesList
     newService = Service(serviceNumber, 0, serviceName, serviceDate)
     #insert service to correct place on list
