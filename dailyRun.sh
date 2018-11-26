@@ -19,3 +19,21 @@ for file in actualoutput/*; do
     cat $file >> mergedTransactions.txt
 done
 
+#gets rid of old service list
+rm serviceList.txt
+
+#runs backend with merged file
+python3 code/backend.py mergedTransactions.txt oldCentralFile.txt newCentralFile.txt serviceList.txt
+
+#check if crashed
+crashStatus=$?
+
+#if crash failed don't delete old central service file as no new file created
+if [[ $crashStatus == 0 ]]; then
+    #get rid of old file
+    rm oldCentralFile.txt
+
+    #newly created central service file renamed
+    mv newCentralFile.txt oldCentralFile.txt
+fi
+
