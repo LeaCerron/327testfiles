@@ -21,4 +21,4 @@ done
 
 
 #runs backend with merged file
-python3 code/backend.py mergedTransactions.txt oldCentralFile.txt oldCentralFile.txt serviceList.txt
+python3 code/backend.py mergedTransactions.txt centralFile.txt centralFile.txt serviceList.txt

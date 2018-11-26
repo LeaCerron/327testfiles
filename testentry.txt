@@ -1,0 +1,19 @@
+login
+agent
+sellticket
+10000
+5
+logout
+login
+agent
+cancelticket
+10001
+2
+logout
+login
+planner
+createservice
+99999
+20181010
+new service name
+logout
