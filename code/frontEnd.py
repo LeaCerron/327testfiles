@@ -208,7 +208,6 @@ def main():
             changeCounter = changeTicket(account, serviceList, changeCounter)
         elif (entered == "logout"):
             addToTransactions("EOS 00000 0 00000 **** 0")
-            #do I need to direct file somewhere?
             break
         else:
             print("Invalid command, try again")
