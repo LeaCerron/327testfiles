@@ -98,14 +98,19 @@ def createService(servicesList, serviceNumber, serviceName, serviceDate):
 def readOldCentralFile():
     serviceList = []
     centralFile = open(oldCentralFile, "r")
-    for line in centralFile:
-        lineElements = line.split()
-        if int(lineElements[1]) < 1000 and int(lineElements[1]) > 0:
-            tempObject = Service(int(lineElements[0]), int(lineElements[2]), lineElements[3], int(lineElements[4]))
-            serviceList.append(tempObject)
-        else:
-            raise Exception("Invalid Capacity")
-    centralFile.close()
+    temp = open(oldCentralFile, "r")
+    first_char = temp.read(1)
+    if not first_char:
+        return serviceList
+    else:
+        for line in centralFile:
+            lineElements = line.split()
+            if int(lineElements[1]) < 1000 and int(lineElements[1]) > 0:
+                tempObject = Service(int(lineElements[0]), int(lineElements[2]), lineElements[3], int(lineElements[4]))
+                serviceList.append(tempObject)
+            else:
+                raise Exception("Invalid Capacity")
+        centralFile.close()
     return serviceList
 
 #make array of each transaction and put them into an array
@@ -172,16 +177,18 @@ def main():
         #change tickets
         elif (code == "CHG"):
             n = 0
+            #matches the first service number
             for y in serviceList:
                 if (number == y.serviceNumber):
                     number = i[3]
                     n += 1
+                    #looks for the second service number
                     for x in serviceList:
                         if (number == x.serviceNumber):
                             changeTickets(x,y,i[2])
                             n += 1
                             break
-                break
+                    break
             if(n != 2):
                     raise Exception("Service " + str(number) + " doesn't exist")
             

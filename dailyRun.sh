@@ -1,16 +1,20 @@
 #!/bin/bash
 
 #make sure have parameter
-if [[ $# == 0 ]]; then
+if [[ $# < 2 ]]; then
     echo "missing required parameter"
     exit 0
 fi
 
 #times run frontend per day
 RUNS=$1
+#the day that is run
+DAY=$2
+
 
 #clear out any old runs
 rm actualoutput/* 2> /dev/null #if nothing to remove then no errors
+
 
 #remove the old merged transaction file
 rm mergedTransactions.txt 2> /dev/null #if nothing to remove then no errors
@@ -54,12 +58,17 @@ else
 fi
 
 
-
 #concatenate all output files to a merged transaction file
 for file in actualoutput/*; do
     cat $file >> mergedTransactions.txt
 done
 
+#makes a seperate merged transaction file for each day
+if [[ -f mergedTransactions.txt ]]; then
+	cat mergedTransactions.txt >| mergedTransactions$DAY.txt
+fi
 
 #runs backend with merged file
-python3 code/backend.py mergedTransactions.txt centralFile.txt centralFile.txt serviceList.txt
+python3 code/backend.py mergedTransactions$DAY.txt centralFile.txt centralFile.txt serviceList.txt
+
+
